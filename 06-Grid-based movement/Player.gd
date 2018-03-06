@@ -22,19 +22,22 @@ func _ready():
 
 
 func _fixed_process(delta):
+	var global=get_node("/root/global");
+	if(!global.running):
+		return;
+	
 	direction = Vector2()
 	speed = 0
 
-	if Input.is_action_pressed("move_up"):
+	if global.steps[0]=="up":
 		direction.y = -1
-	elif Input.is_action_pressed("move_down"):
+	elif global.steps[0]=="down":
 		direction.y = 1
-
-	if Input.is_action_pressed("move_left"):
+	elif global.steps[0]=="left":
 		direction.x = -1
-	elif Input.is_action_pressed("move_right"):
+	elif global.steps[0]=="right":
 		direction.x = 1
-
+	
 	if not is_moving and direction != Vector2():
 		target_direction = direction.normalized()
 		if grid.is_cell_vacant(get_pos(), direction):
@@ -51,5 +54,8 @@ func _fixed_process(delta):
 		if move_distance > distance_to_target:
 			velocity = target_direction * distance_to_target
 			is_moving = false
+			global.steps.pop_front();
+			if(global.steps.size()==0):
+				global.running=false;
 
 		move(velocity)
