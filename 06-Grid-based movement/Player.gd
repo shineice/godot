@@ -59,5 +59,8 @@ func _fixed_process(delta):
 			global.steps.pop_front();
 			if(global.steps.size()==0):
 				global.running=false;
+				var u=preload("res://uuid.gd")
+				global.mapid=String(u.v4())
+				global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 
 		move(velocity)

@@ -20,6 +20,8 @@ func _ready():
 func startRunning():
 	var global=get_node("/root/global");
 	global.running=true;
+	#if complete_point yes/no  (global.complete=Y/global.complete=N)
+	global.complete="Y"
 	
 func test(object, action): #[物件, 動作值]
 	var commands=get_node("commands")
