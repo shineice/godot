@@ -6,7 +6,7 @@ var complete;
 var studentid="10325209"; #Save to global.studentid (signing in)
 var mapid;
 var dict;
-
+var index = 0;
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
     var http = HTTPClient.new() 
