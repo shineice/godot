@@ -65,5 +65,7 @@ func _fixed_process(delta):
 				var u=preload("res://uuid.gd")
 				global.mapid=String(u.v4())
 				global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
+				for i in range(global.index):
+					global.gamestatus(global.list[i][0],global.mapid,global.list[i][1],global.list[i][2],global.list[i][3])
 
 		move(velocity)

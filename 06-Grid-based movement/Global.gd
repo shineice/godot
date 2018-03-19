@@ -3,10 +3,17 @@ extends Node
 var steps=[];
 var running=false;
 var complete;
-var studentid="10325209"; #Save to global.studentid (signing in)
 var mapid;
-var dict;
+var point;
+var studentid="10325209"; #Save to global.studentid (signing in)
+var list=[];
 var index = 0;
+func _ready():
+	for x in range(50):
+		var col = []
+		col.resize(4)
+		list.append(col)
+ 
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
     var http = HTTPClient.new() 

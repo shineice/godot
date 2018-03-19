@@ -2,7 +2,7 @@ extends Node
 
 onready var Obstacle = preload("res://Obstacle.tscn")
 var count=0
-
+var i=0
 func _ready():
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
@@ -30,9 +30,12 @@ func test(object, action): #[物件, 動作值]
 	count=count+1
 	commands.add_child(o)
 	#宣告一個全域陣列(or project setting->Autoload)
-	var global=get_node("/root/global");  
+	var global=get_node("/root/global");
+	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
 	print(global.steps)
+	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
+	i=i+1
 	
 func _input(event):
 	if event.is_action_pressed("pause"):
