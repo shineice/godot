@@ -9,7 +9,16 @@ var grid_size = Vector2(20,12)#Vector2(16, 16)
 
 var grid = []
 onready var Obstacle = preload("res://Obstacle.tscn")
+onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
 onready var Player = preload("res://Player.tscn")
+#define the map
+onready var map={
+	[5,5]:"Obstacle",
+	[6,6]:"Obstacle_1",
+	[7,8]:"Obstacle_1",
+	[8,7]:"Obstacle",
+	[10,10]:"Obstacle_1"
+}
 
 func _ready():
 	for x in range(grid_size.x):
@@ -36,11 +45,21 @@ func _ready():
 	for pos in positions:
 		var new_obstacle = Obstacle.instance()
 		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
-		#new_obstacle.set_pos(pos*50-tile_size/2)
 		grid[pos.x][pos.y] = new_obstacle.get_name()
 		add_child(new_obstacle)
-
-
+	
+	#process map
+	for entry in map:
+		var pos=Vector2(entry[0], entry[1])
+		positions.append(pos)
+		var new_obstacle=null
+		if(map[entry]=="Obstacle"):
+			new_obstacle=Obstacle.instance()
+		else:
+			new_obstacle=Obstacle_1.instance()
+		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
+		grid[pos.x][pos.y] = new_obstacle.get_name()
+		add_child(new_obstacle)
 func get_cell_content(pos=Vector2()):
 	return grid[pos.x][pos.y]
 
