@@ -1,7 +1,4 @@
-extends Node
-
-var steps=[];
-var running=false;
+extends AnimatedSprite
 
 # class member variables go here, for example:
 # var a = 2
