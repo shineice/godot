@@ -22,20 +22,22 @@ func _ready():
 
 
 func _fixed_process(delta):
+#主要在這邊處理
 	var global=get_node("/root/global");
 	if(!global.running):
 		return;
 	
 	direction = Vector2()
 	speed = 0
-
-	if global.steps[0]=="up":
+#以陣列放置player動作,要先叫陣列
+#陣列.讀取陣列中第一個動作,看是甚麼
+	if global.steps[global.index]=="up": 
 		direction.y = -1
-	elif global.steps[0]=="down":
+	elif global.steps[global.index]=="down":
 		direction.y = 1
-	elif global.steps[0]=="left":
+	elif global.steps[global.index]=="left":
 		direction.x = -1
-	elif global.steps[0]=="right":
+	elif global.steps[global.index]=="right":
 		direction.x = 1
 	
 	if not is_moving and direction != Vector2():
@@ -50,12 +52,20 @@ func _fixed_process(delta):
 		var pos = get_pos()
 		var distance_to_target = pos.distance_to(target_pos)
 		var move_distance = velocity.length()
-
+#以下判斷動作是否執行完了，是的話才執行排在下一個的動作
 		if move_distance > distance_to_target:
 			velocity = target_direction * distance_to_target
 			is_moving = false
-			global.steps.pop_front();
-			if(global.steps.size()==0):
+			#不刪除功能start
+			#global.steps.pop_front();
+			global.index = global.index+1
+			if(global.steps.size()==global.index):  
 				global.running=false;
+			#End
+				var u=preload("res://uuid.gd")
+				global.mapid=String(u.v4())
+				global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
+				for i in range(global.index):
+					global.gamestatus(global.list[i][0],global.mapid,global.list[i][1],global.list[i][2],global.list[i][3])
 
 		move(velocity)
