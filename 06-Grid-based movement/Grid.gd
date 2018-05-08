@@ -5,7 +5,8 @@ enum ENTITY_TYPES {PLAYER, OBSTACLE, COLLECTIBLE}
 
 var tile_size = Vector2(50,50)#get_cell_size()
 var half_tile_size = tile_size / 2
-var grid_size = Vector2(20,12)#Vector2(16, 16)
+#var grid_size = Vector2(20,12)#Vector2(16, 16)
+var grid_size = Vector2(15,10)#Vector2(16, 16)
 
 var grid = []
 onready var Obstacle = preload("res://Obstacle.tscn")
