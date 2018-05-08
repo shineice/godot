@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
 [ext_resource path="res://Grid.gd" type="Script" id=3]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
 [ext_resource path="res://palette.tscn" type="PackedScene" id=5]
+[ext_resource path="res://question.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Node"]
 
@@ -35,7 +36,8 @@ script/script = ExtResource( 4 )
 
 [node name="palette" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1093.58, 189.739 )
+transform/pos = Vector2( 996.668, 149.725 )
+transform/scale = Vector2( 1.31691, 1.23148 )
 
 [node name="commands" type="HBoxContainer" parent="."]
 
@@ -48,5 +50,10 @@ margin/top = 604.0
 margin/right = 1171.0
 margin/bottom = 644.0
 alignment = 0
+
+[node name="question" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1121.47, 363.139 )
+transform/scale = Vector2( 1, 1.01303 )
 
 
