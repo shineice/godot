@@ -77,7 +77,7 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
-			return true if grid[grid_pos.x][grid_pos.y] == null or  grid[grid_pos.x][grid_pos.y]=="goal" else false
+			return true if grid[grid_pos.x][grid_pos.y] == null  else false
 	return false
 
 
@@ -99,6 +99,7 @@ func show_success():
 	get_node("success").show()
 
 func is_goal(pos):
+	print(pos)
 	return pos.x==15 and pos.y==9
 
 func reset():
