@@ -20,7 +20,12 @@ onready var map={
 
 var level_obstacle_positions=[
 	[Vector2(5,5),Vector2(5,6),Vector2(5,7),Vector2(6,7),Vector2(7,7),Vector2(8,7),Vector2(9,7),Vector2(8,3),Vector2(9,3),
-		Vector2(10,3),Vector2(11,3),Vector2(11,4)]
+		Vector2(10,3),Vector2(11,3),Vector2(11,4)],
+	[Vector2(5,5),Vector2(5,6),Vector2(5,7),Vector2(6,7),Vector2(7,7),Vector2(8,7),Vector2(9,7),Vector2(8,3),Vector2(9,3),
+		Vector2(10,3),Vector2(11,3),Vector2(11,4), Vector2(15,0),Vector2(15,1),Vector2(15,2),Vector2(15,3),Vector2(0,9),Vector2(1,9),Vector2(2,9)],
+	[Vector2(5,5),Vector2(5,6),Vector2(5,7),Vector2(6,7),Vector2(7,7),Vector2(8,7),Vector2(9,7),Vector2(8,3),Vector2(9,3),
+		Vector2(10,3),Vector2(11,3),Vector2(11,4), Vector2(15,0),Vector2(15,1),Vector2(15,2),Vector2(15,3),Vector2(0,9),Vector2(1,9),Vector2(2,9),
+		Vector2(9,8),Vector2(9,9),Vector2(12,3),Vector2(13,3),Vector2(14,3)]
 ]
 
 func _ready():
@@ -79,7 +84,6 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 func update_child_pos(new_pos, direction, type):
 	# Remove node from current cell, add it to the new cell, returns the new target move_to position
 	var grid_pos = world_to_map(new_pos)
-	print(grid_pos)
 	grid[grid_pos.x][grid_pos.y] = null
 	
 	var new_grid_pos = grid_pos + direction
@@ -90,6 +94,13 @@ func update_child_pos(new_pos, direction, type):
 
 func show_fail():
 	get_node("fail").show()
-	
+
+func show_success():
+	get_node("success").show()
+
+func is_goal(pos):
+	return pos.x==15 and pos.y==9
+
 func reset():
+	self.remove_child(timer)
 	get_tree().reload_current_scene()

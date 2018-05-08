@@ -3,7 +3,7 @@ extends Node2D
 onready var grid = get_parent()
 
 func _ready():
-	set_opacity(0.2)
+	set_opacity(0.5)
 
 func _draw():
 	var LINE_COLOR = Color(255, 255, 255)

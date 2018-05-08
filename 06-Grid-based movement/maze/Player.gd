@@ -77,8 +77,20 @@ func _fixed_process(delta):
 				global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 				for i in range(global.index):
 					global.gamestatus(global.list[i][0],global.mapid,global.list[i][1],global.list[i][2],global.list[i][3])
-
 		move(velocity)
+	if(grid.is_goal(grid.world_to_map(get_pos()))):
+		var global=get_node("/root/global");
+		global.currentLevel=(global.currentLevel+1)%4
+		is_moving=false
+		set_fixed_process(false)
+		grid.show_success()
+		timer = Timer.new()
+		timer.set_one_shot(true)
+		timer.set_timer_process_mode(0)
+		timer.set_wait_time(3)
+		timer.connect("timeout", self, "reset")
+		grid.add_child(timer)
+		timer.start()
 
 func reset():
 	var global=get_node("/root/global");

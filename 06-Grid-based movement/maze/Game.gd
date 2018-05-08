@@ -25,7 +25,9 @@ func startRunning():
 	
 func test(object, action): #[物件, 動作值]
 	var commands=get_node("commands")
-	var o=object.duplicate()
+	#var o=object.duplicate()
+	var o=Button.new()
+	o.text=action
 	o.set_pos(Vector2(count*55+25, 10))
 	count=count+1
 	commands.add_child(o)
@@ -33,7 +35,7 @@ func test(object, action): #[物件, 動作值]
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
-	print(global.steps)
+	#print(global.steps)
 	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
 	i=i+1
 	
