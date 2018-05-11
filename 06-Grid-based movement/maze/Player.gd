@@ -16,6 +16,7 @@ var grid
 var timer
 var game
 
+var expanded_steps=[]
 
 func _ready():
 	grid = get_parent()
@@ -34,14 +35,14 @@ func _fixed_process(delta):
 	speed = 0
 #以陣列放置player動作,要先叫陣列
 #陣列.讀取陣列中第一個動作,看是甚麼
-	if global.index<global.steps.size():
-		if global.steps[global.index]=="up": 
+	if global.index<global.expandedSteps.size():
+		if global.expandedSteps[global.index]=="up": 
 			direction.y = -1
-		elif global.steps[global.index]=="down":
+		elif global.expandedSteps[global.index]=="down":
 			direction.y = 1
-		elif global.steps[global.index]=="left":
+		elif global.expandedSteps[global.index]=="left":
 			direction.x = -1
-		elif global.steps[global.index]=="right":
+		elif global.expandedSteps[global.index]=="right":
 			direction.x = 1
 	if not is_moving and global.gameStatus=="normal":
 		target_direction = direction.normalized()
@@ -80,8 +81,8 @@ func _fixed_process(delta):
 			velocity = target_direction * distance_to_target
 			is_moving = false
 			#不刪除功能start
-			#global.steps.pop_front();
+			#global.expandedSteps.pop_front();
 			global.index = global.index+1
-			if(global.steps.size()==global.index and 1==0):  
+			if(global.expandedSteps.size()==global.index and 1==0):  
 				global.running=false;
 		move(velocity)

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://maze/up.png" type="Texture" id=1]
 [ext_resource path="res://maze/down.png" type="Texture" id=2]
 [ext_resource path="res://maze/left.png" type="Texture" id=3]
 [ext_resource path="res://maze/right.png" type="Texture" id=4]
 [ext_resource path="res://maze/start.png" type="Texture" id=5]
+[ext_resource path="res://maze/block_start.png" type="Texture" id=6]
+[ext_resource path="res://maze/block_end.png" type="Texture" id=7]
+[ext_resource path="res://maze/reuse.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -87,15 +90,67 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -9.0
-margin/top = 190.0
-margin/right = 334.0
-margin/bottom = 408.0
+margin/left = -10.0
+margin/top = 266.0
+margin/right = 333.0
+margin/bottom = 484.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "start"
 icon = ExtResource( 5 )
+flat = false
+
+[node name="block_start" type="Button" parent="."]
+
+rect/scale = Vector2( 0.2, 0.2 )
+hint/tooltip = "開始區塊"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -62.0
+margin/top = 192.0
+margin/right = 200.0
+margin/bottom = 448.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 6 )
+flat = false
+
+[node name="block_end" type="Button" parent="."]
+
+rect/scale = Vector2( 0.2, 0.2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 52.0
+margin/top = 192.0
+margin/right = 314.0
+margin/bottom = 448.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 7 )
+flat = false
+
+[node name="reuse" type="Button" parent="."]
+
+rect/scale = Vector2( 0.15, 0.15 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 192.0
+margin/right = 312.0
+margin/bottom = 498.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 8 )
 flat = false
 
 

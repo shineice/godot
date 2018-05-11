@@ -17,20 +17,58 @@ func _ready():
 	left.connect("pressed", self, "test", [left, "left"])
 	var right=get_node("palette/right")
 	right.connect("pressed", self, "test", [right, "right"])
+	var block_start=get_node("palette/block_start")
+	block_start.connect("pressed", self, "test", [block_start, "block_start"])
+	var block_end=get_node("palette/block_end")
+	block_end.connect("pressed", self, "test", [block_end, "block_end"])
+	var reuse=get_node("palette/reuse")
+	reuse.connect("pressed", self, "test", [reuse, "reuse"])
 	var start=get_node("palette/start");
 	start.connect("pressed", self, "startRunning");
 
 func startRunning():
 	var global=get_node("/root/global");
+	#convert user steps into expanded steps(blocks are flattened)
+	var state="normal" #normal/in_block
+	var reusableBlock=[]
+	for step in global.steps:
+		if state=="normal":
+			if step=="reuse":
+				if reusableBlock.size()>0:
+					for s in reusableBlock:
+						global.expandedSteps.append(s)
+			elif step=="block_start":
+				state="in_block"
+				reusableBlock=[]
+			else:
+				global.expandedSteps.append(step)
+		elif state=="in_block":
+			if step=="block_end":
+				state="normal"
+			else:
+				reusableBlock.append(step)
+	print(global.expandedSteps)
 	global.running=true;
-	#if complete_point yes/no  (global.complete=Y/global.complete=N)
 	global.complete="Y"
 	
 func test(object, action): #[物件, 動作值]
 	var commands=get_node("commands")
 	#var o=object.duplicate()
 	var o=Button.new()
-	o.text=action
+	if action=="up":
+		o.text="U"
+	elif action=="down":
+		o.text="D"
+	elif action=="left":
+		o.text="L"
+	elif action=="right":
+		o.text="R"
+	elif action=="block_start":
+		o.text=">"
+	elif action=="block_end":
+		o.text="<"
+	elif action=="reuse":
+		o.text="G"
 	o.set_pos(Vector2(count*55+25, 10))
 	count=count+1
 	commands.add_child(o)
@@ -38,7 +76,6 @@ func test(object, action): #[物件, 動作值]
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
-	#print(global.steps)
 	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
 	i=i+1
 	
@@ -75,8 +112,8 @@ func upload_game_result():
 	var u=preload("res://uuid.gd")
 	global.mapid=String(u.v4())
 	var global=get_node("/root/global");
-	#global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 	var s={"value":global.list}.to_json()
+	#global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 	#global.gamestatus(s);
 	#print("json"+s.percent_encode())
 

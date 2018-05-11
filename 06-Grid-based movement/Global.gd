@@ -1,6 +1,7 @@
 extends Node
 
 var steps=[];
+var expandedSteps=[]
 var running=false;
 var complete;
 var mapid;
@@ -16,6 +17,7 @@ var gameStatus="normal" #normal/fail/success
 
 func reset():
 	steps=[]
+	expandedSteps=[]
 	index=0
 	running=false
 	gameStatus="normal"
