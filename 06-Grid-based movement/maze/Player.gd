@@ -14,10 +14,12 @@ var is_moving = false
 var type
 var grid
 var timer
+var game
 
 
 func _ready():
 	grid = get_parent()
+	game=grid.get_parent()
 	type = grid.PLAYER
 	set_fixed_process(true)
 
@@ -32,45 +34,40 @@ func _fixed_process(delta):
 	speed = 0
 #以陣列放置player動作,要先叫陣列
 #陣列.讀取陣列中第一個動作,看是甚麼
-	if global.steps[global.index]=="up": 
-		direction.y = -1
-	elif global.steps[global.index]=="down":
-		direction.y = 1
-	elif global.steps[global.index]=="left":
-		direction.x = -1
-	elif global.steps[global.index]=="right":
-		direction.x = 1
-	
-	if not is_moving and direction != Vector2():
+	if global.index<global.steps.size():
+		if global.steps[global.index]=="up": 
+			direction.y = -1
+		elif global.steps[global.index]=="down":
+			direction.y = 1
+		elif global.steps[global.index]=="left":
+			direction.x = -1
+		elif global.steps[global.index]=="right":
+			direction.x = 1
+	if not is_moving and global.gameStatus=="normal":
 		target_direction = direction.normalized()
 		if grid.is_cell_vacant(get_pos(), direction):
 			target_pos = grid.update_child_pos(get_pos(), direction, type)
-			is_moving = true
-		else:
-			if(grid.is_goal(grid.world_to_map(get_pos())+direction)):
-				var global=get_node("/root/global");
-				global.currentLevel=global.currentLevel+1
-				if(global.currentLevel>3):
-					global.currentLevel=3
+			if target_pos==null:
 				is_moving=false
-				set_fixed_process(false)
-				grid.show_success()
-				timer = Timer.new()
-				timer.set_one_shot(true)
-				timer.set_timer_process_mode(0)
-				timer.set_wait_time(3)
-				timer.connect("timeout", self, "reset")
-				grid.add_child(timer)
-				timer.start()
 			else:
-				grid.show_fail()
-				timer = Timer.new()
-				timer.set_one_shot(true)
-				timer.set_timer_process_mode(0)
-				timer.set_wait_time(3)
-				timer.connect("timeout", self, "reset")
-				grid.add_child(timer)
-				timer.start()
+				is_moving = true
+		else:
+			is_moving=false
+			if grid.is_goal(grid.world_to_map(get_pos())+direction):
+				global.gameStatus="success"
+			else:
+				global.gameStatus="fail"
+		#remove else
+	elif global.gameStatus=="success":
+		global.currentLevel=global.currentLevel+1
+		if(global.currentLevel>3):
+			global.currentLevel=3
+		set_fixed_process(false)
+		game.upload_game_result()
+		game.show_success()
+	elif global.gameStatus=="fail":
+		game.upload_game_result()
+		game.show_fail()
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
@@ -85,19 +82,6 @@ func _fixed_process(delta):
 			#不刪除功能start
 			#global.steps.pop_front();
 			global.index = global.index+1
-			if(global.steps.size()==global.index):  
+			if(global.steps.size()==global.index and 1==0):  
 				global.running=false;
-			#End
-				var u=preload("res://uuid.gd")
-				global.mapid=String(u.v4())
-				global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
-				for i in range(global.index):
-					global.gamestatus(global.list[i][0],global.mapid,global.list[i][1],global.list[i][2],global.list[i][3])
 		move(velocity)
-
-func reset():
-	var global=get_node("/root/global");
-	global.steps=[]
-	global.index=0
-	grid.reset()
-	global.running=false;

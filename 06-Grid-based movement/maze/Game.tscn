@@ -53,7 +53,7 @@ texture = ExtResource( 6 )
 
 [node name="palette" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 1093.58, 189.739 )
+transform/pos = Vector2( 956.634, 193.44 )
 
 [node name="commands" type="HBoxContainer" parent="."]
 

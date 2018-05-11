@@ -89,19 +89,18 @@ func update_child_pos(new_pos, direction, type):
 	var new_grid_pos = grid_pos + direction
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	
+	
+	
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
 
-func show_fail():
-	get_node("fail").show()
-
-func show_success():
-	get_node("success").show()
-
 func is_goal(pos):
-	print(pos)
 	return pos.x==15 and pos.y==9
 
 func reset():
 	self.remove_child(timer)
+	var global=get_node("/root/global");
+	global.steps=[]
+	global.index=0
+	global.running=false;
 	get_tree().reload_current_scene()

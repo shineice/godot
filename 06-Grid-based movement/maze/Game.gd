@@ -3,7 +3,10 @@ extends Node
 onready var Obstacle = preload("res://maze/Obstacle.tscn")
 var count=0
 var i=0
+var timer
 func _ready():
+	var global=get_node("/root/global");
+	global.mapid=""
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
@@ -45,3 +48,40 @@ func _input(event):
 			get_tree().set_pause(false)
 		else:
 			get_tree().set_pause(true)
+			
+func show_fail():
+	get_node("Grid/fail").show()
+	var grid=get_node("Grid")
+	timer = Timer.new()
+	timer.set_one_shot(true)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(3)
+	timer.connect("timeout", self, "reset")
+	grid.add_child(timer)
+	timer.start()
+
+func show_success():
+	get_node("Grid/success").show()
+	var grid=get_node("Grid")
+	timer = Timer.new()
+	timer.set_one_shot(true)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(3)
+	timer.connect("timeout", self, "reset")
+	grid.add_child(timer)
+	timer.start()
+
+func upload_game_result():
+	var u=preload("res://uuid.gd")
+	global.mapid=String(u.v4())
+	var global=get_node("/root/global");
+	#global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
+	var s={"value":global.list}.to_json()
+	#global.gamestatus(s);
+	#print("json"+s.percent_encode())
+
+func reset():
+	var global=get_node("/root/global");
+	var grid=get_node("Grid")
+	global.reset()
+	grid.reset()
