@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://fisherman/Game.gd" type="Script" id=1]
+[ext_resource path="res://fisherman/tilesets/Mines.tres" type="TileSet" id=2]
+[ext_resource path="res://fisherman/Grid.gd" type="Script" id=3]
+[ext_resource path="res://fisherman/GridVisualizer.gd" type="Script" id=4]
+[ext_resource path="res://fisherman/palette.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fisherman/question.tscn" type="PackedScene" id=6]
+
+[node name="Game" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="Grid" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 50, 50 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -655337, 0 )
+script/script = ExtResource( 3 )
+
+[node name="GridVisualizer" type="Node2D" parent="Grid"]
+
+script/script = ExtResource( 4 )
+
+[node name="palette" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 996.668, 149.725 )
+transform/scale = Vector2( 1.31691, 1.23148 )
+
+[node name="commands" type="HBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -1.0
+margin/top = 604.0
+margin/right = 1171.0
+margin/bottom = 644.0
+alignment = 0
+
+[node name="question" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1121.47, 363.139 )
+transform/scale = Vector2( 1, 1.01303 )
+
+
