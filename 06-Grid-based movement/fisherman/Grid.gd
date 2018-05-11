@@ -5,27 +5,15 @@ enum ENTITY_TYPES {PLAYER, OBSTACLE, COLLECTIBLE}
 
 var tile_size = Vector2(50,50)#get_cell_size()
 var half_tile_size = tile_size / 2
-
 var grid_size = Vector2(17,7)#Vector2(16, 16)
-
 
 var grid = []
 onready var Obstacle = preload("res://Obstacle.tscn")
 onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
-
 onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
 onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
 onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
-
 onready var Player = preload("res://Player.tscn")
-#define the map
-onready var map={
-	[5,5]:"Obstacle",
-	[6,6]:"Obstacle_1",
-	[7,8]:"Obstacle_1",
-	[8,7]:"Obstacle",
-	[10,10]:"Obstacle_1"
-}
 
 #define the map
 onready var map={
@@ -61,6 +49,7 @@ func _ready():
 	for pos in positions:
 		var new_obstacle = Obstacle.instance()
 		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
+		#new_obstacle.set_pos(pos*50-tile_size/2)
 		grid[pos.x][pos.y] = new_obstacle.get_name()
 		add_child(new_obstacle)
 

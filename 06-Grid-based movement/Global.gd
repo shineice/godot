@@ -8,6 +8,7 @@ var point;
 var studentid="10325209"; #Save to global.studentid (signing in)
 var list=[];
 var index = 0;
+
 var currentGame="maze"
 var currentLevel=1
 
@@ -24,7 +25,6 @@ func _ready():
 		var col = []
 		col.resize(4)
 		list.append(col)
- 
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
     var http = HTTPClient.new() 

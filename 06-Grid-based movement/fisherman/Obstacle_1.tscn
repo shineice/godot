@@ -1,16 +1,13 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://Obstacle_1.png" type="Texture" id=1]
+[ext_resource path="res://fisherman/Obstacle_1.png" type="Texture" id=1]
 
 [node name="Obstacle" type="Node2D"]
 
-
 transform/pos = Vector2( 4, 5 )
-
 __meta__ = {
 "_edit_group_": true
 }
-
 
 [node name="Obstacle_1" type="Sprite" parent="."]
 

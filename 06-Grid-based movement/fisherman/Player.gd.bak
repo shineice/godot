@@ -1,11 +1,4 @@
-[gd_scene load_steps=3 format=1]
-
-[ext_resource path="res://Player.png" type="Texture" id=1]
-
-[sub_resource type="GDScript" id=1]
-
-resource/name = "chef.png"
-script/source = "extends KinematicBody2D
+extends KinematicBody2D
 
 var direction = Vector2()
 
@@ -23,7 +16,6 @@ var grid
 
 
 func _ready():
-	print(\"12345\")
 	grid = get_parent()
 	type = grid.PLAYER
 	set_fixed_process(true)
@@ -31,21 +23,20 @@ func _ready():
 
 func _fixed_process(delta):
 #主要在這邊處理
-	var global=get_node(\"/root/global\");
+	var global=get_node("/root/global");
 	if(!global.running):
 		return;
-	
 	direction = Vector2()
 	speed = 0
 #以陣列放置player動作,要先叫陣列
 #陣列.讀取陣列中第一個動作,看是甚麼
-	if global.steps[0]==\"up\": 
+	if global.steps[0]=="up": 
 		direction.y = -1
-	elif global.steps[0]==\"down\":
+	elif global.steps[0]=="down":
 		direction.y = 1
-	elif global.steps[0]==\"left\":
+	elif global.steps[0]=="left":
 		direction.x = -1
-	elif global.steps[0]==\"right\":
+	elif global.steps[0]=="right":
 		direction.x = 1
 	
 	if not is_moving and direction != Vector2():
@@ -69,24 +60,3 @@ func _fixed_process(delta):
 				global.running=false;
 
 		move(velocity)
-"
-
-[node name="Player" type="KinematicBody2D"]
-
-editor/display_folded = true
-transform/pos = Vector2( 223.469, 161.661 )
-transform/scale = Vector2( 0.4, 0.35219 )
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-script/script = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-

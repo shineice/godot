@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
-[ext_resource path="res://Grid.gd" type="Script" id=3]
-[ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
-[ext_resource path="res://palette.tscn" type="PackedScene" id=5]
-[ext_resource path="res://question.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fisherman/Game.gd" type="Script" id=1]
+[ext_resource path="res://fisherman/tilesets/Mines.tres" type="TileSet" id=2]
+[ext_resource path="res://fisherman/Grid.gd" type="Script" id=3]
+[ext_resource path="res://fisherman/GridVisualizer.gd" type="Script" id=4]
+[ext_resource path="res://fisherman/palette.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fisherman/question.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Node"]
 
@@ -13,7 +13,6 @@ script/script = ExtResource( 1 )
 
 [node name="Grid" type="TileMap" parent="."]
 
-editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 2 )
 cell/size = Vector2( 50, 50 )
