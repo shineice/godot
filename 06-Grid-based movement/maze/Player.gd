@@ -61,8 +61,8 @@ func _fixed_process(delta):
 		#remove else
 	elif global.gameStatus=="success":
 		global.currentLevel=global.currentLevel+1
-		if(global.currentLevel>3):
-			global.currentLevel=3
+		if(global.currentLevel>5):
+			global.currentLevel=5
 		set_fixed_process(false)
 		game.upload_game_result()
 		game.show_success()

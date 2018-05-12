@@ -25,7 +25,18 @@ var level_obstacle_positions=[
 		Vector2(10,3),Vector2(11,3),Vector2(11,4), Vector2(15,0),Vector2(15,1),Vector2(15,2),Vector2(15,3),Vector2(0,9),Vector2(1,9),Vector2(2,9)],
 	[Vector2(5,5),Vector2(5,6),Vector2(5,7),Vector2(6,7),Vector2(7,7),Vector2(8,7),Vector2(9,7),Vector2(8,3),Vector2(9,3),
 		Vector2(10,3),Vector2(11,3),Vector2(11,4), Vector2(15,0),Vector2(15,1),Vector2(15,2),Vector2(15,3),Vector2(0,9),Vector2(1,9),Vector2(2,9),
-		Vector2(9,8),Vector2(9,9),Vector2(12,3),Vector2(13,3),Vector2(14,3)]
+		Vector2(9,8),Vector2(9,9),Vector2(12,3),Vector2(13,3),Vector2(14,3)],
+	[Vector2(5,5),Vector2(5,6),Vector2(5,7),Vector2(6,7),Vector2(7,7),Vector2(8,7),Vector2(9,7),Vector2(8,3),Vector2(9,3),
+		Vector2(10,3),Vector2(11,3),Vector2(11,4), Vector2(15,0),Vector2(15,1),Vector2(15,2),Vector2(15,3),Vector2(0,9),Vector2(1,9),Vector2(2,9),
+		Vector2(9,8),Vector2(9,9),Vector2(12,3),Vector2(13,3),Vector2(14,3),
+		Vector2(1,0),Vector2(1,1),Vector2(1,2),Vector2(1,3)],
+	[Vector2(1,0),Vector2(1,1),Vector2(1,2),Vector2(1,3),Vector2(1,4),Vector2(1,5),
+	 Vector2(3,5),Vector2(3,6),Vector2(3,7),Vector2(3,8),Vector2(3,9),
+	 Vector2(5,0),Vector2(5,1),Vector2(5,2),Vector2(5,3),Vector2(5,4),Vector2(5,5),
+	 Vector2(7,5),Vector2(7,6),Vector2(7,7),Vector2(7,8),Vector2(7,9),
+	 Vector2(9,0),Vector2(9,1),Vector2(9,2),Vector2(9,3),Vector2(9,4),Vector2(9,5),
+	 Vector2(11,5),Vector2(11,6),Vector2(11,7),Vector2(11,8),Vector2(11,9),
+	 Vector2(13,0),Vector2(13,1),Vector2(13,2),Vector2(13,3),Vector2(13,4),Vector2(13,5)]
 ]
 
 func _ready():

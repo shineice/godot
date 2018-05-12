@@ -53,25 +53,38 @@ func startRunning():
 	
 func test(object, action): #[物件, 動作值]
 	var commands=get_node("commands")
-	#var o=object.duplicate()
-	var o=Button.new()
+	var commands1=get_node("commands1")
+	#var o=Button.new()
+	var o=null
 	if action=="up":
-		o.text="U"
+		#o.text="U"
+		o=get_node("command_up").duplicate()
 	elif action=="down":
-		o.text="D"
+		#o.text="D"
+		o=get_node("command_down").duplicate()
 	elif action=="left":
-		o.text="L"
+		#o.text="L"
+		o=get_node("command_left").duplicate()
 	elif action=="right":
-		o.text="R"
+		#o.text="R"
+		o=get_node("command_right").duplicate()
 	elif action=="block_start":
-		o.text=">"
+		#o.text=">"
+		o=get_node("command_block_start").duplicate()
 	elif action=="block_end":
-		o.text="<"
+		#o.text="<"
+		o=get_node("command_block_end").duplicate()
 	elif action=="reuse":
-		o.text="G"
-	o.set_pos(Vector2(count*55+25, 10))
-	count=count+1
-	commands.add_child(o)
+		#o.text="G"
+		o=get_node("command_reuse").duplicate()
+
+	print(o.get_minimum_size())
+	#o.set_pos(Vector2(count*55+25, 10))
+	#count=count+1
+	if global.steps.size()<20:
+		commands.add_child(o)
+	else:
+		commands1.add_child(o)
 	#宣告一個全域陣列(or project setting->Autoload)
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
