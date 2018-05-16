@@ -1,21 +1,20 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Obstacle.png" type="Texture" id=1]
-[ext_resource path="res://obstacle.gd" type="Script" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
+"frames": [ ExtResource( 1 ), null, ExtResource( 1 ), null, ExtResource( 1 ), null, ExtResource( 1 ), null, ExtResource( 1 ), null, ExtResource( 1 ) ],
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
 
 [node name="Obstacle" type="Node2D"]
 
-transform/pos = Vector2( 5, 7 )
-transform/scale = Vector2( 0.2, 0.2 )
+transform/pos = Vector2( 3.14938, 7.87901 )
+transform/scale = Vector2( 0.1, 0.130363 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -24,6 +23,6 @@ __meta__ = {
 
 frames = SubResource( 1 )
 animation = "default"
-script/script = ExtResource( 2 )
+frame = 6
 
 

@@ -8,6 +8,7 @@ var half_tile_size = tile_size / 2
 var grid_size = Vector2(17,7)#Vector2(16, 16)
 
 var grid = []
+var grid_inst=[]
 onready var Obstacle = preload("res://Obstacle.tscn")
 onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
 onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
@@ -27,8 +28,10 @@ onready var map={
 func _ready():
 	for x in range(grid_size.x):
 		grid.append([])
+		grid_inst.append([])
 		for y in range(grid_size.y):
 			grid[x].append(null)
+			grid_inst[x].append(null)
 
 	# Player
 	var new_player = Player.instance()
@@ -70,6 +73,7 @@ func _ready():
 			new_obstacle=Obstacle_4.instance()
 		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
 		grid[pos.x][pos.y] = new_obstacle.get_name()
+		grid_inst[pos.x][pos.y]=new_obstacle
 		add_child(new_obstacle)
 
 func get_cell_content(pos=Vector2()):
@@ -78,6 +82,10 @@ func get_cell_content(pos=Vector2()):
 
 func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
+	
+	if grid_inst[grid_pos.x][grid_pos.y] != null:
+		grid_inst[grid_pos.x][grid_pos.y].get_node("AnimatedSprite").play()
+		return true
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
 			return true if grid[grid_pos.x][grid_pos.y] == null else false
