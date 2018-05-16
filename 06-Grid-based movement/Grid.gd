@@ -84,6 +84,10 @@ func get_cell_content(pos=Vector2()):
 
 func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
+	
+	if grid_inst[grid_pos.x][grid_pos.y] != null:
+		grid_inst[grid_pos.x][grid_pos.y].get_node("AnimatedSprite").play()
+		return true
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
 			return true if grid[grid_pos.x][grid_pos.y] == null else false

@@ -11,8 +11,6 @@ var count=0
 var i=0
 
 func _ready():
-	var u=preload("res://uuid.gd")
-	global.mapid=String(u.v4())
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
@@ -29,21 +27,17 @@ func _ready():
 func startRunning():
 	var global=get_node("/root/global");
 	global.running=true;
-	#if complete_point yes/no  (global.complete=Y/global.complete=N)
-	global.complete="Y"
 	
 func test(object, action): #[物件, 動作值]
 	var commands=get_node("commands")
 	var o=object.duplicate()
-	#o.set_pos(Vector2(count*55+25, 10))
-	#count=count+1
+	o.set_pos(Vector2(count*55+25, 10))
+	count=count+1
 	commands.add_child(o)
 	#宣告一個全域陣列(or project setting->Autoload)
-	var global=get_node("/root/global");
-	var u=preload("res://uuid.gd")  
+	var global=get_node("/root/global");  
 	global.steps.append(action);#把陣列的值掛上去
 	print(global.steps)
-	global.list.append([String(u.v4()),global.mapid,"add",action,String(OS.get_unix_time())])
 	
 func _input(event):
 	if event.is_action_pressed("pause"):

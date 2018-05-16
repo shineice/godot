@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=1]
+=======
+[gd_scene load_steps=6 format=1]
+>>>>>>> 6565698eb4e71f66fa881c476bd5ab6742d7d6d4
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
 [ext_resource path="res://Grid.gd" type="Script" id=3]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
 [ext_resource path="res://palette.tscn" type="PackedScene" id=5]
+<<<<<<< HEAD
 [ext_resource path="res://question.tscn" type="PackedScene" id=6]
 [ext_resource path="res://list.tscn" type="PackedScene" id=7]
+=======
+>>>>>>> 6565698eb4e71f66fa881c476bd5ab6742d7d6d4
 
 [node name="Game" type="Node"]
 
@@ -38,8 +45,12 @@ script/script = ExtResource( 4 )
 
 [node name="palette" parent="." instance=ExtResource( 5 )]
 
+<<<<<<< HEAD
 transform/pos = Vector2( 1004.22, 162.313 )
 transform/scale = Vector2( 1.31691, 1.23148 )
+=======
+transform/pos = Vector2( 1093.58, 189.739 )
+>>>>>>> 6565698eb4e71f66fa881c476bd5ab6742d7d6d4
 
 [node name="commands" type="HBoxContainer" parent="."]
 
@@ -53,6 +64,7 @@ margin/right = 1171.0
 margin/bottom = 644.0
 alignment = 0
 
+<<<<<<< HEAD
 [node name="question" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1121.47, 363.139 )
@@ -62,4 +74,6 @@ transform/scale = Vector2( 1, 1.01303 )
 
 transform/pos = Vector2( 1034.71, 90.6314 )
 
+=======
+>>>>>>> 6565698eb4e71f66fa881c476bd5ab6742d7d6d4
 
