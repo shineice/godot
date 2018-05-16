@@ -6,6 +6,7 @@ onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
 onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
 onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
 
+
 var count=0
 var i=0
 

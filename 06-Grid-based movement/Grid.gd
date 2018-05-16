@@ -8,12 +8,14 @@ var half_tile_size = tile_size / 2
 var grid_size = Vector2(17,7)#Vector2(16, 16)
 
 var grid = []
+var grid_inst=[]
 onready var Obstacle = preload("res://Obstacle.tscn")
 onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
 onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
 onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
 onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
 onready var Player = preload("res://Player.tscn")
+onready var listbox=get_parent().get_node("list/listbox");
 
 #define the map
 onready var map={
@@ -27,8 +29,10 @@ onready var map={
 func _ready():
 	for x in range(grid_size.x):
 		grid.append([])
+		grid_inst.append([])
 		for y in range(grid_size.y):
 			grid[x].append(null)
+			grid_inst[x].append(null)
 
 	# Player
 	var new_player = Player.instance()
@@ -51,6 +55,7 @@ func _ready():
 		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
 		#new_obstacle.set_pos(pos*50-tile_size/2)
 		grid[pos.x][pos.y] = new_obstacle.get_name()
+		grid_inst[pos.x][pos.y]=new_obstacle
 		add_child(new_obstacle)
 
 	#process map
@@ -70,6 +75,7 @@ func _ready():
 			new_obstacle=Obstacle_4.instance()
 		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
 		grid[pos.x][pos.y] = new_obstacle.get_name()
+		grid_inst[pos.x][pos.y]=new_obstacle
 		add_child(new_obstacle)
 
 func get_cell_content(pos=Vector2()):
@@ -87,10 +93,18 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 func update_child_pos(new_pos, direction, type):
 	# Remove node from current cell, add it to the new cell, returns the new target move_to position
 	var grid_pos = world_to_map(new_pos)
-	print(grid_pos)
+	
 	grid[grid_pos.x][grid_pos.y] = null
 	
 	var new_grid_pos = grid_pos + direction
+	
+	for entry in map:
+		if(entry[0]==new_grid_pos.x and entry[1]==new_grid_pos.y):
+			var label=Label.new()
+			label.text=map[entry]
+			listbox.add_child(label)
+			
+			break
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
