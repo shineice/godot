@@ -5,7 +5,9 @@ onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
 onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
 onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
 onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
-
+onready var guest = preload("res://guest.tscn")
+onready var number = preload("res://number.tscn")
+onready var half = preload("res://half.tscn")
 
 var count=0
 var i=0

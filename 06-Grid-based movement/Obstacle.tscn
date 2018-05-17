@@ -13,8 +13,8 @@ animations = [ {
 
 [node name="Obstacle" type="Node2D"]
 
-transform/pos = Vector2( 3.14938, 7.87901 )
-transform/scale = Vector2( 0.1, 0.130363 )
+transform/pos = Vector2( 48.9674, 24.879 )
+transform/scale = Vector2( 0.05, 0.08 )
 __meta__ = {
 "_edit_group_": true
 }

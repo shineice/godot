@@ -5,7 +5,8 @@
 
 [node name="Player" type="KinematicBody2D"]
 
-transform/pos = Vector2( 223.469, 163.191 )
+transform/pos = Vector2( 202.18, 141.902 )
+transform/scale = Vector2( 0.334719, 0.334719 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1
