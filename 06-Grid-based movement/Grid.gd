@@ -18,6 +18,7 @@ onready var Player = preload("res://Player.tscn")
 onready var guest = preload("res://guest.tscn")
 onready var number = preload("res://number.tscn")
 onready var half = preload("res://half.tscn")
+onready var listbox=get_parent().get_node("list/listbox");
 
 #define the map
 onready var map={
@@ -111,6 +112,14 @@ func update_child_pos(new_pos, direction, type):
 	grid[grid_pos.x][grid_pos.y] = null
 	
 	var new_grid_pos = grid_pos + direction
+	
+	for entry in map:
+		if(entry[0]==new_grid_pos.x and entry[1]==new_grid_pos.y):
+			var label=Label.new()
+			label.text=map[entry]
+			listbox.add_child(label)
+			
+			break
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
