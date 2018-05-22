@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://maze/up.png" type="Texture" id=1]
 [ext_resource path="res://maze/down.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://maze/block_start.png" type="Texture" id=6]
 [ext_resource path="res://maze/block_end.png" type="Texture" id=7]
 [ext_resource path="res://maze/reuse.png" type="Texture" id=8]
+[ext_resource path="res://maze/backButton.png" type="Texture" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,7 +28,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "up"
 icon = ExtResource( 1 )
-flat = false
+flat = true
 
 [node name="down" type="Button" parent="."]
 
@@ -45,7 +46,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "down"
 icon = ExtResource( 2 )
-flat = false
+flat = true
 
 [node name="left" type="Button" parent="."]
 
@@ -63,7 +64,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "left"
 icon = ExtResource( 3 )
-flat = false
+flat = true
 
 [node name="right" type="Button" parent="."]
 
@@ -81,7 +82,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "right"
 icon = ExtResource( 4 )
-flat = false
+flat = true
 
 [node name="start" type="Button" parent="."]
 
@@ -99,7 +100,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "start"
 icon = ExtResource( 5 )
-flat = false
+flat = true
 
 [node name="block_start" type="Button" parent="."]
 
@@ -117,7 +118,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 6 )
-flat = false
+flat = true
 
 [node name="block_end" type="Button" parent="."]
 
@@ -134,7 +135,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 7 )
-flat = false
+flat = true
 
 [node name="reuse" type="Button" parent="."]
 
@@ -151,6 +152,23 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 8 )
-flat = false
+flat = true
+
+[node name="back" type="Button" parent="."]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -14.0
+margin/top = 306.0
+margin/right = 98.0
+margin/bottom = 368.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 9 )
+flat = true
 
 

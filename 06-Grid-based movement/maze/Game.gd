@@ -25,6 +25,8 @@ func _ready():
 	reuse.connect("pressed", self, "test", [reuse, "reuse"])
 	var start=get_node("palette/start");
 	start.connect("pressed", self, "startRunning");
+	var start=get_node("palette/back");
+	start.connect("pressed", global, "back2SceneSwitcher");
 
 func startRunning():
 	var global=get_node("/root/global");

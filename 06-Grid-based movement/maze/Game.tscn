@@ -101,7 +101,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 8 )
-flat = false
+flat = true
 
 [node name="command_right" type="Button" parent="."]
 
@@ -117,7 +117,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 9 )
-flat = false
+flat = true
 
 [node name="command_up" type="Button" parent="."]
 
@@ -133,7 +133,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 10 )
-flat = false
+flat = true
 
 [node name="command_down" type="Button" parent="."]
 
@@ -149,7 +149,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 11 )
-flat = false
+flat = true
 
 [node name="command_block_start" type="Button" parent="."]
 
@@ -165,7 +165,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 12 )
-flat = false
+flat = true
 
 [node name="command_block_end" type="Button" parent="."]
 
@@ -181,7 +181,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 13 )
-flat = false
+flat = true
 
 [node name="command_reuse" type="Button" parent="."]
 
@@ -197,6 +197,6 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 14 )
-flat = false
+flat = true
 
 
