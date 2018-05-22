@@ -100,6 +100,7 @@ func _input(event):
 			get_tree().set_pause(true)
 			
 func show_fail():
+	print("show fail")
 	get_node("Grid/fail").show()
 	var grid=get_node("Grid")
 	timer = Timer.new()
@@ -126,11 +127,12 @@ func upload_game_result():
 	global.mapid=String(u.v4())
 	var global=get_node("/root/global");
 	var s={"value":global.list}.to_json()
-	#global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
-	#global.gamestatus(s);
-	#print("json"+s.percent_encode())
+	global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
+	global.gamestatus(s);
+	print("finished upload")
 
 func reset():
+	print("reset")
 	var global=get_node("/root/global");
 	var grid=get_node("Grid")
 	global.reset()

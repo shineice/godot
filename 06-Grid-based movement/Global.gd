@@ -35,7 +35,7 @@ func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     while( http.get_status()==HTTPClient.STATUS_CONNECTING or http.get_status()==HTTPClient.STATUS_RESOLVING):
         http.poll()
         print("Connecting..")
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_CONNECTED ) 
 
@@ -52,7 +52,7 @@ func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
         # Keep polling until the request is going on
         http.poll()
         print("Requesting.."+String(http.get_status()))
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED ) # Make sure request finished well.
     print("response? ",http.has_response()) 
@@ -65,7 +65,7 @@ func gamestatus(req):
     while( http.get_status()==HTTPClient.STATUS_CONNECTING or http.get_status()==HTTPClient.STATUS_RESOLVING):
         http.poll()
         print("Connecting..")
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_CONNECTED ) 
 
@@ -81,7 +81,7 @@ func gamestatus(req):
         # Keep polling until the request is going on
         http.poll()
         print("Requesting.."+String(http.get_status()))
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED ) # Make sure request finished well.
     print("response? ",http.has_response()) 
