@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
@@ -7,6 +7,13 @@
 [ext_resource path="res://palette.tscn" type="PackedScene" id=5]
 [ext_resource path="res://list.tscn" type="PackedScene" id=6]
 [ext_resource path="res://question.tscn" type="PackedScene" id=7]
+[ext_resource path="res://half.png" type="Texture" id=8]
+[ext_resource path="res://number.png" type="Texture" id=9]
+[ext_resource path="res://Obstacle.png" type="Texture" id=10]
+[ext_resource path="res://Obstacle_1.png" type="Texture" id=11]
+[ext_resource path="res://Obstacle_3.png" type="Texture" id=12]
+[ext_resource path="res://Obstacle_4.png" type="Texture" id=13]
+[ext_resource path="res://update-arrow.png" type="Texture" id=14]
 
 [node name="Game" type="Node"]
 
@@ -58,5 +65,124 @@ transform/pos = Vector2( 1049.81, 103.219 )
 [node name="question" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1127.27, 370.275 )
+
+[node name="half" type="Button" parent="."]
+
+rect/scale = Vector2( 0.05, 0.05 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 669.54
+margin/top = 682.257
+margin/right = 1161.0
+margin/bottom = 1102.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 8 )
+flat = true
+
+[node name="number" type="Button" parent="."]
+
+rect/scale = Vector2( 0.16, 0.12 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 728.54
+margin/top = 682.257
+margin/right = 897.54
+margin/bottom = 848.257
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 9 )
+flat = true
+
+[node name="Obstacle" type="Button" parent="."]
+
+rect/scale = Vector2( 0.032, 0.055 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 797.54
+margin/top = 682.257
+margin/right = 1789.54
+margin/bottom = 1046.26
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 10 )
+flat = true
+
+[node name="Obstacle_1" type="Button" parent="."]
+
+rect/scale = Vector2( 0.45, 0.4 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 885.54
+margin/top = 673.257
+margin/right = 961.54
+margin/bottom = 743.257
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 11 )
+flat = true
+
+[node name="Obstacle_3" type="Button" parent="."]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 975.54
+margin/top = 679.257
+margin/right = 1051.54
+margin/bottom = 749.257
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 12 )
+flat = true
+
+[node name="Obstacle_4" type="Button" parent="."]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1045.54
+margin/top = 678.257
+margin/right = 1121.54
+margin/bottom = 748.257
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 13 )
+flat = true
+
+[node name="Obstacle_2" type="Button" parent="."]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1119.54
+margin/top = 679.257
+margin/right = 1195.54
+margin/bottom = 749.257
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 14 )
+flat = true
 
 
