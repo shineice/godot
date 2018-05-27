@@ -19,7 +19,8 @@ onready var guest = preload("res://guest.tscn")
 onready var number = preload("res://number.tscn")
 onready var half = preload("res://half.tscn")
 onready var listbox=get_parent().get_node("list/listbox");
-var o
+onready var listbox1=get_parent().get_node("list/listbox1");
+var count=0
 
 #define the map
 onready var map={
@@ -118,8 +119,12 @@ func update_child_pos(new_pos, direction, type):
 		if(entry[0]==new_grid_pos.x and entry[1]==new_grid_pos.y):
 			var label=Label.new()
 			label.text=map[entry]
-			o=get_parent().get_node(map[entry]).duplicate()
-			listbox.add_child(o)
+			var o = get_parent().get_node(map[entry]).duplicate()
+			if count < 4:
+				listbox.add_child(o)
+			else:
+				listbox1.add_child(o)
+			count=count+1
 			
 			break
 	grid[new_grid_pos.x][new_grid_pos.y] = type
