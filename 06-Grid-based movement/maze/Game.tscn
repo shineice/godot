@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://maze/Game.gd" type="Script" id=1]
 [ext_resource path="res://maze/tilesets/Mines.tres" type="TileSet" id=2]
@@ -14,6 +14,14 @@
 [ext_resource path="res://maze/block_start_small.png" type="Texture" id=12]
 [ext_resource path="res://maze/block_end_small.png" type="Texture" id=13]
 [ext_resource path="res://maze/reuse_small.png" type="Texture" id=14]
+[ext_resource path="res://fonts/kaiu.ttf" type="DynamicFontData" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 20
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 15 )
 
 [node name="Game" type="Node"]
 
@@ -198,5 +206,71 @@ enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 14 )
 flat = true
+
+[node name="popup_readme" type="WindowDialog" parent="."]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 11.0
+margin/top = 102.0
+margin/right = 6.0
+margin/bottom = 47.0
+popup/exclusive = true
+window/title = "Read Me"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="popup_readme"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 800.0
+margin/bottom = 600.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode/enabled = true
+bbcode/bbcode = "快來協助探險家抓回落跑的猴子助手！
+
+利用畫面右側的 [b][color=#00369b]上下左右[/color][color=#005dc2] [/color][/b]按鈕，組合出最短的路徑，然後，點選 [color=#c10300][b]Start[/b][/color] ，讓探險家跑去抓住猴子
+記住，路徑越短越好哦！
+
+進階玩法：
+有沒有發現在很多關卡，你會一直重複類似的路徑，例如
+
+[color=#0000ff]右[font=Verdana, Arial, Helvetica, sans-serif]右[/font][/color][font=Verdana, Arial, Helvetica, sans-serif][color=#0000ff]右下[font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][/color][/font]
+
+這時候有更快的方法喲！
+
+利用畫面右側的黃色箭頭，可以組合出 可重複 的步驟，然後用中間白色的圈圈來重複呼叫它，例如：
+
+[color=#e86e04]>[/color][color=#0000ff]右右右下[/color][color=#e86e04]<[/color]圈圈圈圈圈圈
+
+得到的結果是一樣的，但是路徑會比較短喲！"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="button_readme" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 932.0
+margin/top = 430.0
+margin/right = 995.0
+margin/bottom = 450.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ReadMe"
+flat = false
+
+[connection signal="pressed" from="button_readme" to="." method="_on_button_readme_pressed"]
 
 

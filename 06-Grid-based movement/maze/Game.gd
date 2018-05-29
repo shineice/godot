@@ -92,8 +92,28 @@ func test(object, action): #[物件, 動作值]
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
 	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
+	o.connect("pressed", self, "deleteCommandFrom", [o, global.steps.size()-1]);
 	i=i+1
-	
+
+func deleteCommandFrom(o, index): 
+	var commands=get_node("commands")
+	var commands1=get_node("commands1")
+	var parentNode=o.get_parent()
+	var currentIndex=0
+	for object in commands.get_children():
+		if currentIndex>=index:
+			commands.remove_child(object)
+		currentIndex=currentIndex+1
+	for object in commands1.get_children():
+		if currentIndex>=index:
+			commands1.remove_child(object)
+		currentIndex=currentIndex+1
+	currentIndex=global.steps.size()-1
+	while currentIndex>=index:
+		global.steps.pop_back()
+		currentIndex=currentIndex-1
+	print(global.steps)
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if get_tree().is_paused():
@@ -139,3 +159,7 @@ func reset():
 	var grid=get_node("Grid")
 	global.reset()
 	grid.reset()
+
+func _on_button_readme_pressed():
+	get_node("popup_readme").popup()
+	pass # replace with function body
