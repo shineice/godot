@@ -21,6 +21,7 @@ onready var half = preload("res://half.tscn")
 onready var listbox=get_parent().get_node("list/listbox");
 onready var listbox1=get_parent().get_node("list/listbox1");
 var count=0
+var o 
 
 #define the map
 onready var map={
@@ -117,9 +118,10 @@ func update_child_pos(new_pos, direction, type):
 	
 	for entry in map:
 		if(entry[0]==new_grid_pos.x and entry[1]==new_grid_pos.y):
-			var label=Label.new()
-			label.text=map[entry]
-			var o = get_parent().get_node(map[entry]).duplicate()
+			if (map[entry]=="guest"):
+				break
+			else:
+				 o = get_parent().get_node(map[entry]).duplicate()
 			if count < 5:
 				listbox.add_child(o)
 			else:
