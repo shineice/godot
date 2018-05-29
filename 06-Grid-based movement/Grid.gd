@@ -120,7 +120,7 @@ func update_child_pos(new_pos, direction, type):
 			var label=Label.new()
 			label.text=map[entry]
 			var o = get_parent().get_node(map[entry]).duplicate()
-			if count < 4:
+			if count < 5:
 				listbox.add_child(o)
 			else:
 				listbox1.add_child(o)
