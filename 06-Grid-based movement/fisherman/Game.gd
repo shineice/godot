@@ -10,7 +10,7 @@ var i=0
 func _ready():
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
-	var up=get_node("palette/up")
+	var up=get_node("up_command")
 	up.connect("pressed", self, "test", [up, "up"])  #[物件, 動作值]
 	var down=get_node("palette/down")
 	down.connect("pressed", self, "test", [down, "down"])

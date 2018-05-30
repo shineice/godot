@@ -15,10 +15,7 @@ onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
 onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
 onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
 onready var Player = preload("res://Player.tscn")
-onready var guest = preload("res://guest.tscn")
-onready var number = preload("res://number.tscn")
-onready var half = preload("res://half.tscn")
-onready var listbox=get_parent().get_node("list/listbox");
+
 
 #define the map
 onready var map={
@@ -27,9 +24,6 @@ onready var map={
 	[10,1]:"Obstacle_3",
 	[10,5]:"Obstacle_4",
 	[3,3]:"Obstacle_2", #loop
-	[16,8]:"guest",
-	[7,6]:"number",
-	[6,1]:"half"
 }
 
 func _ready():
@@ -113,13 +107,7 @@ func update_child_pos(new_pos, direction, type):
 	
 	var new_grid_pos = grid_pos + direction
 	
-	for entry in map:
-		if(entry[0]==new_grid_pos.x and entry[1]==new_grid_pos.y):
-			var label=Label.new()
-			label.text=map[entry]
-			listbox.add_child(label)
-			
-			break
+
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size

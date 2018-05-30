@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://fisherman/PIC/1488216695594.png" type="Texture" id=2]
@@ -10,6 +10,14 @@
 [ext_resource path="res://fisherman/PIC/a1caf1-2880x1800.png" type="Texture" id=8]
 [ext_resource path="res://fisherman/PIC/10_400.jpeg" type="Texture" id=9]
 [ext_resource path="res://fisherman/PIC/small/UP_resized.png" type="Texture" id=10]
+[ext_resource path="res://fisherman/PIC/small/DOWN_resized.png" type="Texture" id=11]
+[ext_resource path="res://fisherman/PIC/small/LEFT_resized.png" type="Texture" id=12]
+[ext_resource path="res://fisherman/PIC/small/RIGHT_resized.png" type="Texture" id=13]
+[ext_resource path="res://fisherman/PIC/small/PI_resized.png" type="Texture" id=14]
+[ext_resource path="res://fisherman/PIC/small/PU_resized.png" type="Texture" id=15]
+[ext_resource path="res://fisherman/PIC/small/cooltext287991548541490_resized.png" type="Texture" id=16]
+[ext_resource path="res://fisherman/PIC/small/cooltext287991507177870_resized.png" type="Texture" id=17]
+[ext_resource path="res://fisherman/PIC/small/cooltext287991311825016_resized.png" type="Texture" id=18]
 
 [node name="Game" type="Node"]
 
@@ -90,20 +98,148 @@ transform/pos = Vector2( 1025.71, 490.76 )
 transform/scale = Vector2( 0.54226, 0.530844 )
 texture = ExtResource( 9 )
 
-[node name="up" type="Button" parent="."]
+[node name="up_command" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 607.0
-margin/top = 716.0
-margin/right = 679.0
-margin/bottom = 782.0
+margin/left = 586.0
+margin/top = 694.0
+margin/right = 648.0
+margin/bottom = 760.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 10 )
+flat = true
+
+[node name="down_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 663.0
+margin/top = 701.0
+margin/right = 725.0
+margin/bottom = 757.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 11 )
+flat = true
+
+[node name="left_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 738.0
+margin/top = 697.0
+margin/right = 800.0
+margin/bottom = 753.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 12 )
+flat = true
+
+[node name="right_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 513.0
+margin/top = 698.0
+margin/right = 575.0
+margin/bottom = 754.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 13 )
+flat = true
+
+[node name="pick_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 811.0
+margin/top = 698.0
+margin/right = 873.0
+margin/bottom = 754.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 14 )
+flat = true
+
+[node name="put_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 882.0
+margin/top = 702.0
+margin/right = 944.0
+margin/bottom = 758.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 15 )
+flat = true
+
+[node name="le_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 949.0
+margin/top = 703.0
+margin/right = 1011.0
+margin/bottom = 759.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 16 )
+flat = true
+
+[node name="ri_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1081.0
+margin/top = 696.0
+margin/right = 1143.0
+margin/bottom = 752.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 17 )
+flat = true
+
+[node name="for_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1016.0
+margin/top = 701.0
+margin/right = 1078.0
+margin/bottom = 757.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 18 )
 flat = true
 
 
