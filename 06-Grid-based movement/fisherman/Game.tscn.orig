@@ -1,0 +1,290 @@
+<<<<<<< HEAD
+[gd_scene load_steps=19 format=1]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://fisherman/PIC/1488216695594.png" type="Texture" id=2]
+[ext_resource path="res://fisherman/PIC/images.jpg" type="Texture" id=3]
+[ext_resource path="res://tilesets/tile.tres" type="TileSet" id=4]
+[ext_resource path="res://Grid.gd" type="Script" id=5]
+[ext_resource path="res://GridVisualizer.gd" type="Script" id=6]
+[ext_resource path="res://fisherman/palette.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fisherman/PIC/a1caf1-2880x1800.png" type="Texture" id=8]
+[ext_resource path="res://fisherman/PIC/10_400.jpeg" type="Texture" id=9]
+[ext_resource path="res://fisherman/PIC/small/UP_resized.png" type="Texture" id=10]
+[ext_resource path="res://fisherman/PIC/small/DOWN_resized.png" type="Texture" id=11]
+[ext_resource path="res://fisherman/PIC/small/LEFT_resized.png" type="Texture" id=12]
+[ext_resource path="res://fisherman/PIC/small/RIGHT_resized.png" type="Texture" id=13]
+[ext_resource path="res://fisherman/PIC/small/PI_resized.png" type="Texture" id=14]
+[ext_resource path="res://fisherman/PIC/small/PU_resized.png" type="Texture" id=15]
+[ext_resource path="res://fisherman/PIC/small/cooltext287991548541490_resized.png" type="Texture" id=16]
+[ext_resource path="res://fisherman/PIC/small/cooltext287991507177870_resized.png" type="Texture" id=17]
+[ext_resource path="res://fisherman/PIC/small/cooltext287991311825016_resized.png" type="Texture" id=18]
+=======
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://fisherman/Game.gd" type="Script" id=1]
+[ext_resource path="res://fisherman/tilesets/Mines.tres" type="TileSet" id=2]
+[ext_resource path="res://fisherman/Grid.gd" type="Script" id=3]
+[ext_resource path="res://fisherman/GridVisualizer.gd" type="Script" id=4]
+[ext_resource path="res://fisherman/palette.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fisherman/question.tscn" type="PackedScene" id=6]
+>>>>>>> 708155bb0416a07fa503bfd211e8cada056debe8
+
+[node name="Game" type="Node"]
+
+script/script = ExtResource( 1 )
+
+<<<<<<< HEAD
+[node name="bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 597.259, 331.507 )
+transform/scale = Vector2( 1.94001, 1.77451 )
+texture = ExtResource( 2 )
+
+[node name="bg1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1025.92, 324.657 )
+transform/scale = Vector2( 1.24306, 3.21296 )
+texture = ExtResource( 3 )
+
+[node name="Grid" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 4 )
+=======
+[node name="Grid" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+>>>>>>> 708155bb0416a07fa503bfd211e8cada056debe8
+cell/size = Vector2( 50, 50 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+<<<<<<< HEAD
+tile_data = IntArray( 0, 6, 1, 0, 2, 0, 3, 1, 4, 3, 5, 4, 6, 4, 7, 3, 8, 3, 9, 4, 10, 4, 11, 4, 12, 3, 13, 6, 14, 1, 15, 1, 16, 6, 65536, 0, 65537, 6, 65538, 0, 65539, 1, 65540, 3, 65541, 4, 65542, 4, 65543, 3, 65544, 3, 65545, 4, 65546, 4, 65547, 4, 65548, 3, 65549, 1, 65550, 1, 65551, 6, 65552, 1, 131072, 0, 131073, 6, 131074, 0, 131075, 1, 131076, 3, 131077, 4, 131078, 4, 131079, 4, 131080, 3, 131081, 4, 131082, 4, 131083, 4, 131084, 4, 131085, 6, 131086, 1, 131087, 1, 131088, 1, 196608, 6, 196609, 6, 196610, 6, 196611, 6, 196612, 4, 196613, 4, 196614, 3, 196615, 4, 196616, 3, 196617, 4, 196618, 3, 196619, 4, 196620, 3, 196621, 0, 196622, 6, 196623, 1, 196624, 1, 262144, 0, 262145, 0, 262146, 6, 262147, 6, 262148, 4, 262149, 4, 262150, 3, 262151, 4, 262152, 4, 262153, 3, 262154, 4, 262155, 4, 262156, 3, 262157, 1, 262158, 6, 262159, 6, 262160, 6, 327680, 0, 327681, 6, 327682, 0, 327683, 6, 327684, 4, 327685, 3, 327686, 3, 327687, 4, 327688, 4, 327689, 3, 327690, 4, 327691, 4, 327692, 3, 327693, 1, 327694, 6, 327695, 1, 327696, 1, 393216, 0, 393217, 6, 393218, 0, 393219, 1, 393220, 4, 393221, 3, 393222, 4, 393223, 4, 393224, 4, 393225, 4, 393226, 3, 393227, 4, 393228, 4, 393229, 1, 393230, 6, 393231, 1, 393232, 1, 458752, 6, 458753, 0, 458754, 6, 458755, 1, 458756, 4, 458757, 3, 458758, 4, 458759, 4, 458760, 4, 458761, 4, 458762, 3, 458763, 4, 458764, 4, 458765, 6, 458766, 1, 458767, 6, 458768, 6, 524288, 0, 524289, 6, 524290, 0, 524291, 1, 524292, 4, 524293, 4, 524294, 3, 524295, 4, 524296, 4, 524297, 4, 524298, 4, 524299, 3, 524300, 3, 524301, 6, 524302, 1, 524303, 1, 524304, 1 )
+script/script = ExtResource( 5 )
+
+[node name="GridVisualizer" type="Node2D" parent="Grid"]
+
+script/script = ExtResource( 6 )
+
+[node name="palette" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 857.608, 5.65742 )
+
+[node name="command_bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 423.7, 557.544 )
+transform/scale = Vector2( 0.295578, 0.102744 )
+texture = ExtResource( 8 )
+=======
+tile_data = IntArray( -655337, 0 )
+script/script = ExtResource( 3 )
+
+[node name="GridVisualizer" type="Node2D" parent="Grid"]
+
+script/script = ExtResource( 4 )
+
+[node name="palette" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 996.668, 149.725 )
+transform/scale = Vector2( 1.31691, 1.23148 )
+>>>>>>> 708155bb0416a07fa503bfd211e8cada056debe8
+
+[node name="commands" type="HBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+<<<<<<< HEAD
+margin/left = 0.0
+margin/top = 477.0
+margin/right = 840.0
+margin/bottom = 552.0
+alignment = 0
+
+[node name="command1" type="HBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 561.0
+margin/right = 840.0
+margin/bottom = 636.0
+alignment = 0
+
+[node name="qu_bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1025.71, 490.76 )
+transform/scale = Vector2( 0.54226, 0.530844 )
+texture = ExtResource( 9 )
+
+[node name="up_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 586.0
+margin/top = 694.0
+margin/right = 648.0
+margin/bottom = 760.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 10 )
+flat = true
+
+[node name="down_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 663.0
+margin/top = 701.0
+margin/right = 725.0
+margin/bottom = 757.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 11 )
+flat = true
+
+[node name="left_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 738.0
+margin/top = 697.0
+margin/right = 800.0
+margin/bottom = 753.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 12 )
+flat = true
+
+[node name="right_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 513.0
+margin/top = 698.0
+margin/right = 575.0
+margin/bottom = 754.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 13 )
+flat = true
+
+[node name="pick_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 811.0
+margin/top = 698.0
+margin/right = 873.0
+margin/bottom = 754.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 14 )
+flat = true
+
+[node name="put_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 882.0
+margin/top = 702.0
+margin/right = 944.0
+margin/bottom = 758.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 15 )
+flat = true
+
+[node name="le_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 949.0
+margin/top = 703.0
+margin/right = 1011.0
+margin/bottom = 759.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 16 )
+flat = true
+
+[node name="ri_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1081.0
+margin/top = 696.0
+margin/right = 1143.0
+margin/bottom = 752.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 17 )
+flat = true
+
+[node name="for_command" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1016.0
+margin/top = 701.0
+margin/right = 1078.0
+margin/bottom = 757.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 18 )
+flat = true
+=======
+margin/left = -1.0
+margin/top = 604.0
+margin/right = 1171.0
+margin/bottom = 644.0
+alignment = 0
+
+[node name="question" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1121.47, 363.139 )
+transform/scale = Vector2( 1, 1.01303 )
+>>>>>>> 708155bb0416a07fa503bfd211e8cada056debe8
+
+

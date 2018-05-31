@@ -1,9 +1,10 @@
 extends Node
 
-onready var Obstacle_1 = preload("res://fisherman/sheep.tscn")
-onready var Obstacle_2 = preload("res://fisherman/wolf.tscn")
-onready var Obstacle_3 = preload("res://fisherman/grass.tscn")
-
+onready var Obstacle = preload("res://Obstacle.tscn")
+onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
+onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
+onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
+onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
 
 var count=0
 var i=0
@@ -12,13 +13,13 @@ func _ready():
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
-	up.connect("pressed", self, "test", [get_node("up_command"), "up"])  #[物件, 動作值]
+	up.connect("pressed", self, "test", [up, "up"])  #[物件, 動作值]
 	var down=get_node("palette/down")
-	down.connect("pressed", self, "test", [get_node("down_command"), "down"])
+	down.connect("pressed", self, "test", [down, "down"])
 	var left=get_node("palette/left")
-	left.connect("pressed", self, "test", [get_node("left_command"), "left"])
+	left.connect("pressed", self, "test", [left, "left"])
 	var right=get_node("palette/right")
-	right.connect("pressed", self, "test", [get_node("right_command"), "right"])
+	right.connect("pressed", self, "test", [right, "right"])
 	var start=get_node("palette/start");
 	start.connect("pressed", self, "startRunning");
 
