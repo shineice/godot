@@ -16,14 +16,15 @@
 
 [node name="up" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 154.0
-margin/top = 5.0
-margin/right = 246.0
-margin/bottom = 91.0
+margin/left = 156.0
+margin/top = 21.0
+margin/right = 248.0
+margin/bottom = 107.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -32,14 +33,15 @@ flat = true
 
 [node name="down" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 154.0
-margin/top = 161.0
-margin/right = 246.0
-margin/bottom = 247.0
+margin/left = 158.0
+margin/top = 157.0
+margin/right = 250.0
+margin/bottom = 243.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -48,13 +50,14 @@ flat = true
 
 [node name="left" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 66.0
+margin/left = 89.0
 margin/top = 86.0
-margin/right = 158.0
+margin/right = 181.0
 margin/bottom = 172.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -64,14 +67,15 @@ flat = true
 
 [node name="right" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 242.0
-margin/top = 89.0
-margin/right = 334.0
-margin/bottom = 175.0
+margin/left = 226.0
+margin/top = 85.0
+margin/right = 318.0
+margin/bottom = 171.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -80,14 +84,15 @@ flat = true
 
 [node name="start" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 69.0
-margin/top = 458.0
-margin/right = 181.0
-margin/bottom = 544.0
+margin/left = 83.0
+margin/top = 423.0
+margin/right = 195.0
+margin/bottom = 509.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -96,14 +101,15 @@ flat = true
 
 [node name="pick" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 68.0
-margin/top = 365.0
-margin/right = 180.0
-margin/bottom = 451.0
+margin/left = 81.0
+margin/top = 334.0
+margin/right = 193.0
+margin/bottom = 420.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -112,14 +118,15 @@ flat = true
 
 [node name="put" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 229.0
-margin/top = 365.0
-margin/right = 341.0
-margin/bottom = 451.0
+margin/left = 218.0
+margin/top = 334.0
+margin/right = 330.0
+margin/bottom = 420.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -128,62 +135,66 @@ flat = true
 
 [node name="back" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 229.0
-margin/top = 458.0
-margin/right = 341.0
-margin/bottom = 544.0
+margin/left = 218.0
+margin/top = 422.0
+margin/right = 330.0
+margin/bottom = 508.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 8 )
 flat = true
 
-[node name="Button" type="Button" parent="."]
+[node name="block_start" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 66.0
-margin/top = 265.0
-margin/right = 158.0
-margin/bottom = 351.0
+margin/left = 80.0
+margin/top = 249.0
+margin/right = 172.0
+margin/bottom = 335.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 9 )
 flat = true
 
-[node name="Button 2" type="Button" parent="."]
+[node name="block_end" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 250.0
-margin/top = 266.0
-margin/right = 342.0
-margin/bottom = 352.0
+margin/left = 234.0
+margin/top = 248.0
+margin/right = 326.0
+margin/bottom = 334.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 10 )
 flat = true
 
-[node name="Button 3" type="Button" parent="."]
+[node name="reuse" type="Button" parent="."]
 
+rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 157.0
-margin/top = 265.0
-margin/right = 249.0
-margin/bottom = 351.0
+margin/left = 161.0
+margin/top = 249.0
+margin/right = 253.0
+margin/bottom = 335.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
