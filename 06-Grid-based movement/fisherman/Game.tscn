@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://fisherman/Game.gd" type="Script" id=1]
 [ext_resource path="res://fisherman/PIC/b03533fa828ba61e518d48734234970a304e590f.jpg" type="Texture" id=2]
@@ -16,7 +16,15 @@
 [ext_resource path="res://fisherman/PIC/small/LE_resized.png" type="Texture" id=14]
 [ext_resource path="res://fisherman/PIC/small/RI_resized.png" type="Texture" id=15]
 [ext_resource path="res://fisherman/PIC/small/FOR_resized.png" type="Texture" id=16]
-[ext_resource path="res://fisherman/PIC/READ.png" type="Texture" id=17]
+[ext_resource path="res://fonts/kaiu.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://fisherman/PIC/READ.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = false
+fallback/0 = ExtResource( 17 )
 
 [node name="Game" type="Node"]
 
@@ -243,9 +251,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 3.0
+margin/left = 35.0
 margin/top = 48.0
-margin/right = 1200.0
+margin/right = 1166.0
 margin/bottom = 622.0
 popup/exclusive = false
 window/title = "Read Me"
@@ -256,28 +264,13 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 4.0
-margin/right = 1195.0
-margin/bottom = 568.0
+margin/left = 27.0
+margin/top = 18.0
+margin/right = 1108.0
+margin/bottom = 558.0
+custom_fonts/normal_font = SubResource( 1 )
 bbcode/enabled = true
-bbcode/bbcode = "快來協助探險家抓回落跑的猴子助手！
-
-利用畫面右側的 [b][color=#00369b]上下左右[/color][color=#005dc2] [/color][/b]按鈕，組合出最短的路徑，然後，點選 [color=#c10300][b]Start[/b][/color] ，讓探險家跑去抓住猴子
-記住，路徑越短越好哦！
-
-進階玩法：
-有沒有發現在很多關卡，你會一直重複類似的路徑，例如
-
-[color=#0000ff]右[font=Verdana, Arial, Helvetica, sans-serif]右[/font][/color][font=Verdana, Arial, Helvetica, sans-serif][color=#0000ff]右下[font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif][font=Verdana, Arial, Helvetica, sans-serif]右[/font][font=Verdana, Arial, Helvetica, sans-serif]右下[/font][/font][/color][/font]
-
-這時候有更快的方法喲！
-
-利用畫面右側的黃色箭頭，可以組合出 可重複 的步驟，然後用中間白色的圈圈來重複呼叫它，例如：
-
-[color=#e86e04]>[/color][color=#0000ff]右右右下[/color][color=#e86e04]<[/color]圈圈圈圈圈圈
-
-得到的結果是一樣的，但是路徑會比較短喲！"
+bbcode/bbcode = "[color=#ff0000][size=150][b]請大家幫助小船帶著小羊過河[/b][/size][/color]"
 visible_characters = -1
 percent_visible = 1.0
 
@@ -295,7 +288,7 @@ margin/bottom = 629.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 17 )
+icon = ExtResource( 18 )
 flat = true
 
 [connection signal="pressed" from="read" to="." method="_on_button_readme_pressed"]
