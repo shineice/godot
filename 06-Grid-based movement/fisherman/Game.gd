@@ -119,3 +119,6 @@ func _on_button_readme_pressed():
 	get_node("Popup_read").popup()
 	pass # replace with function body
 	
+func _on_read_2_pressed():
+	get_node("Popup_read2").popup()
+	pass # replace with function body

@@ -18,7 +18,7 @@ onready var Player = preload("res://fisherman/Player.tscn")
 
 #define the map
 onready var map={
-	[3,3]:"Obstacle_3",  
+	[0,3]:"Obstacle_3",  
 	[10,1]:"Obstacle_2",
 	[10,5]:"Obstacle_1",
 }
