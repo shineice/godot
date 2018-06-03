@@ -64,6 +64,7 @@ script/script = ExtResource( 5 )
 
 [node name="success" type="Sprite" parent="Grid"]
 
+visibility/visible = false
 transform/pos = Vector2( 618.569, 337.274 )
 transform/scale = Vector2( 0.745673, 0.730218 )
 z/z = 1
