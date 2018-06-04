@@ -14,7 +14,7 @@ onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
 onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
 onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
 onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
-onready var Player = preload("res://Player.tscn")
+onready var Player = preload("res://fisherman/Player.tscn")
 
 
 #define the map
@@ -72,12 +72,12 @@ func _ready():
 			new_obstacle=Obstacle_3.instance()
 		elif(map[entry]=="Obstacle_4"):
 			new_obstacle=Obstacle_4.instance()
-		elif(map[entry]=="number"):
-			new_obstacle=number.instance()
-		elif(map[entry]=="half"):
-			new_obstacle=half.instance()
-		elif(map[entry]=="guest"):
-			new_obstacle=guest.instance()
+		#elif(map[entry]=="number"):
+		#	new_obstacle=number.instance()
+		#elif(map[entry]=="half"):
+		#	new_obstacle=half.instance()
+		#elif(map[entry]=="guest"):
+		#	new_obstacle=guest.instance()
 		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
 		grid[pos.x][pos.y] = new_obstacle.get_name()
 		grid_inst[pos.x][pos.y]=new_obstacle
