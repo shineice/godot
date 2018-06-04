@@ -81,9 +81,9 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
 			print(grid[grid_pos.x][grid_pos.y])
-			if grid[grid_pos.x][grid_pos.y] =="Obstacle":
-				return true
-			return true if grid[grid_pos.x][grid_pos.y] == null else false
+			if grid[grid_pos.x][grid_pos.y] =="Obstacle_2":
+				return false
+			return true if grid[grid_pos.x][grid_pos.y] == null else true
 	return false
 
 
@@ -94,16 +94,17 @@ func update_child_pos(new_pos, direction, type):
 	var new_grid_pos = grid_pos + direction
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
-	if global.expandedSteps[global.index+1]== "pickup":
-		o = grid_inst[new_grid_pos.x][new_grid_pos.y]
-		grid_inst[new_grid_pos.x][new_grid_pos.y]=null
-		grid[new_grid_pos.x][new_grid_pos.y]=null
-		remove_child(o)
-	elif global.expandedSteps[global.index+1]== "putdown":
-		grid_inst[new_grid_pos.x][new_grid_pos.y]=o
-		grid[new_grid_pos.x][new_grid_pos.y]="o"
-		o.set_pos(map_to_world(new_pos) + half_tile_size)
-		add_child(o)
+	if global.index < global.steps.size():
+		if global.expandedSteps[global.index+1]== "pickup" :
+			o = grid_inst[new_grid_pos.x][new_grid_pos.y]
+			grid_inst[new_grid_pos.x][new_grid_pos.y]=null
+			grid[new_grid_pos.x][new_grid_pos.y]=null
+			remove_child(o)
+		elif global.expandedSteps[global.index+1]== "putdown":
+			grid_inst[new_grid_pos.x][new_grid_pos.y]=o
+			grid[new_grid_pos.x][new_grid_pos.y]="o"
+			o.set_pos(map_to_world(new_grid_pos) + half_tile_size)
+			add_child(o)
 		
 	return target_pos
 	

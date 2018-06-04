@@ -27,6 +27,7 @@ func _ready():
 func _fixed_process(delta):
 #主要在這邊處理
 	var global=get_node("/root/global");
+	print(global.running)
 	if(!global.running):
 		return;
 	direction = Vector2()
@@ -44,7 +45,10 @@ func _fixed_process(delta):
 			direction.x = 1
 		else:
 			global.index = global.index+1
-			return
+			if global.index>=global.expandedSteps.size()+1:
+				is_moving=true
+			else:
+				return
 	
 	if not is_moving and global.gameStatus=="normal":
 		target_direction = direction.normalized()
