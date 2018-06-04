@@ -45,6 +45,35 @@ func _fixed_process(delta):
 			
 			target_pos = grid.update_child_pos(get_pos(), direction, type)
 			is_moving = true
+
+#判斷成敗Start
+	if not is_moving and global.gameStatus=="normal":
+		target_direction = direction.normalized()
+		if grid.is_cell_vacant(get_pos(), direction):
+			target_pos = grid.update_child_pos(get_pos(), direction, type)
+			if target_pos==null:
+				is_moving=false
+			else:
+				is_moving = true
+		else:
+			is_moving=false
+			if grid.is_goal(grid.world_to_map(get_pos())+direction):
+				global.gameStatus="success"
+			else:
+				global.gameStatus="fail"
+		#remove else
+	elif global.gameStatus=="success":
+		global.currentLevel=global.currentLevel+1
+		if(global.currentLevel>5):
+			global.currentLevel=5
+		set_fixed_process(false)
+		#game.upload_game_result()
+		#game.show_success()
+	#elif global.gameStatus=="fail":
+	#	game.upload_game_result()
+	#	game.show_fail()
+#判斷成敗end
+
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
