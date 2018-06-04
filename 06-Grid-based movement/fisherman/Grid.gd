@@ -84,7 +84,7 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 			if grid[grid_pos.x][grid_pos.y] =="Obstacle":
 				return true
 			return true if grid[grid_pos.x][grid_pos.y] == null else false
-	return true
+	return false
 
 
 func update_child_pos(new_pos, direction, type):

@@ -42,6 +42,9 @@ func _fixed_process(delta):
 			direction.x = -1
 		elif global.expandedSteps[global.index]=="right":
 			direction.x = 1
+		else:
+			global.index = global.index+1
+			return
 	
 	if not is_moving and global.gameStatus=="normal":
 		target_direction = direction.normalized()
