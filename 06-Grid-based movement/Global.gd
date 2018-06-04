@@ -1,6 +1,7 @@
 extends Node
 
 var steps=[];
+var expandedSteps=[]
 var running=false;
 var complete;
 var mapid;
@@ -9,6 +10,23 @@ var studentid="10325209"; #Save to global.studentid (signing in)
 var list=[];
 var index = 0;
 
+var currentGame="maze"
+var currentLevel=1
+
+var gameStatus="normal" #normal/fail/success
+
+func reset():
+	steps=[]
+	expandedSteps=[]
+	index=0
+	running=false
+	gameStatus="normal"
+
+func _ready():
+	for x in range(50):
+		var col = []
+		col.resize(4)
+		list.append(col)
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
     var http = HTTPClient.new() 
@@ -17,7 +35,7 @@ func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     while( http.get_status()==HTTPClient.STATUS_CONNECTING or http.get_status()==HTTPClient.STATUS_RESOLVING):
         http.poll()
         print("Connecting..")
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_CONNECTED ) 
 
@@ -34,7 +52,7 @@ func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
         # Keep polling until the request is going on
         http.poll()
         print("Requesting.."+String(http.get_status()))
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED ) # Make sure request finished well.
     print("response? ",http.has_response()) 
@@ -47,7 +65,7 @@ func gamestatus(req):
     while( http.get_status()==HTTPClient.STATUS_CONNECTING or http.get_status()==HTTPClient.STATUS_RESOLVING):
         http.poll()
         print("Connecting..")
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_CONNECTED ) 
 
@@ -63,7 +81,12 @@ func gamestatus(req):
         # Keep polling until the request is going on
         http.poll()
         print("Requesting.."+String(http.get_status()))
-        OS.delay_msec(500)
+        OS.delay_msec(100)
 
     assert( http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED ) # Make sure request finished well.
     print("response? ",http.has_response()) 
+
+
+func back2SceneSwitcher():
+	get_tree().change_scene("res://LevelSelection.tscn")
+
