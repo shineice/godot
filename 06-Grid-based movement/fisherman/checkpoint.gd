@@ -21,17 +21,14 @@ func switchpoint(point):
 		get_tree().change_scene("res://fisherman/Game.tscn")
 		var global=get_node("/root/global");
 		global.reset()
-		#get_tree().reload_current_scene()
 		
 	elif point=="fisherman_2":
 		get_tree().change_scene("res://fisherman/Game1.tscn")
 		var global=get_node("/root/global");
 		global.reset()
-		#get_tree().reload_current_scene()
 		
 	elif point=="fisherman_3":
 		get_tree().change_scene("res://fisherman/Game2.tscn")
 		var global=get_node("/root/global");
 		global.reset()
-		#get_tree().reload_current_scene()
 		
