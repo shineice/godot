@@ -13,7 +13,6 @@ var is_moving = false
 
 var type
 var grid
-var timer
 var game
 
 var expanded_steps=[]
@@ -60,9 +59,6 @@ func _fixed_process(delta):
 				global.gameStatus="fail"
 		
 	elif global.gameStatus=="success":
-		global.currentLevel=global.currentLevel+1
-		if(global.currentLevel>5):
-			global.currentLevel=5
 		set_fixed_process(false)
 		global.running=false
 		global.complete="Y"

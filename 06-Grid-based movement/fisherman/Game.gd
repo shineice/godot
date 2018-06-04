@@ -93,6 +93,7 @@ func deleteCommandFrom(o, index):
 		currentIndex=currentIndex-1
 	print(global.steps)
 	
+	
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if get_tree().is_paused():
@@ -111,7 +112,7 @@ func upload_game_result():
 	global.mapid=String(u.v4())
 	var global=get_node("/root/global");
 	var s={"value":global.list}.to_json()
-	global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
+	global.gamepoint(global.mapid,global.studentid,global.point,String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 	global.gamestatus(s);
 	print("finished upload")
 

@@ -6,7 +6,7 @@ enum ENTITY_TYPES {PLAYER, OBSTACLE, COLLECTIBLE}
 var tile_size = Vector2(65,65)#get_cell_size()
 var half_tile_size = tile_size / 2
 var grid_size = Vector2(13,7)#Vector2(16, 16)
-var timer
+
 
 var grid = []
 var grid_inst=[]
@@ -24,6 +24,9 @@ onready var map={
 }
 
 func _ready():
+	var global=get_node("/root/global");
+	global.point = "fisherman_2"
+	
 	for x in range(grid_size.x):
 		grid.append([])
 		grid_inst.append([])
@@ -95,10 +98,4 @@ func update_child_pos(new_pos, direction, type):
 func is_goal(pos):
 	return pos.x==10 and pos.y==4
 	
-func reset():
-	self.remove_child(timer)
-	var global=get_node("/root/global");
-	global.steps=[]
-	global.index=0
-	global.running=false;
-	get_tree().reload_current_scene()
+
