@@ -147,9 +147,11 @@ func show_success():
 func upload_game_result():
 	var u=preload("res://uuid.gd")
 	global.mapid=String(u.v4())
+
+	global.point=global.currentGame+"_"+(global.currentLevel+1)
 	var global=get_node("/root/global");
 	var s={"value":global.list}.to_json()
-	global.gamepoint(global.mapid,global.studentid,"point2",String(OS.get_unix_time()),String(global.steps.size()),global.complete)
+	global.gamepoint(global.mapid,global.studentid,global.point,String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 	global.gamestatus(s);
 	print("finished upload")
 

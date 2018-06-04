@@ -65,10 +65,12 @@ func _fixed_process(delta):
 			global.currentLevel=5
 		set_fixed_process(false)
 		global.running=false
+		global.complete="Y";
 		game.upload_game_result()
 		game.show_success()
 	elif global.gameStatus=="fail":
 		global.running=false
+		global.complete="N";
 		game.upload_game_result()
 		game.show_fail()
 	elif is_moving:

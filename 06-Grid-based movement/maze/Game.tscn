@@ -232,7 +232,6 @@ flat = true
 
 [node name="popup_readme" type="WindowDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
