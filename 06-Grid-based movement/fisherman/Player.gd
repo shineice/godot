@@ -14,7 +14,8 @@ var is_moving = false
 var type
 var grid
 var game
-
+var o
+var new_grid_pos
 var expanded_steps=[]
 
 func _ready():
@@ -34,7 +35,9 @@ func _fixed_process(delta):
 	speed = 0
 #以陣列放置player動作,要先叫陣列
 #陣列.讀取陣列中第一個動作,看是甚麼
-	if global.index<global.expandedSteps.size():
+	new_grid_pos = grid.world_to_map(get_pos())+direction
+	if global.index < global.expandedSteps.size():
+		print("global.index"+String(global.index)+global.expandedSteps[global.index])
 		if global.expandedSteps[global.index]=="up": 
 			direction.y = -1
 		elif global.expandedSteps[global.index]=="down":
@@ -43,12 +46,31 @@ func _fixed_process(delta):
 			direction.x = -1
 		elif global.expandedSteps[global.index]=="right":
 			direction.x = 1
-		else:
-			global.index = global.index+1
-			if global.index>=global.expandedSteps.size()+1:
-				is_moving=true
-			else:
-				return
+		elif global.expandedSteps[global.index]=="pickup":
+			o = grid.grid_inst[new_grid_pos.x][new_grid_pos.y]
+			grid.grid_inst[new_grid_pos.x][new_grid_pos.y]=null
+			grid.grid[new_grid_pos.x][new_grid_pos.y]=null
+			grid.remove_child(o)
+			#global.index = global.index+1
+			is_moving=true
+		elif global.expandedSteps[global.index]=="putdown":
+			grid.grid_inst[new_grid_pos.x][new_grid_pos.y]=o
+			grid.grid[new_grid_pos.x][new_grid_pos.y]="o"
+			o.set_pos(grid.map_to_world(new_grid_pos) + grid.half_tile_size)
+			grid.add_child(o)
+			is_moving=true
+			if global.expandedSteps.size()-1 == global.index:
+				is_moving=false
+				
+			
+			
+			
+		#else:
+			#global.index = global.index+1
+			#if global.index>=global.expandedSteps.size()+1:
+				#is_moving=true
+			#else:
+				#return
 	
 	if not is_moving and global.gameStatus=="normal":
 		target_direction = direction.normalized()

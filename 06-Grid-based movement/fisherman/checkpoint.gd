@@ -11,8 +11,10 @@ func _ready():
 	bt2.connect("pressed", self, "switchpoint", ["fisherman_2"]) 
 	var bt3=get_node("3")
 	bt3.connect("pressed", self, "switchpoint", ["fisherman_3"])
-	var bt4=get_node("home")
-	bt4.connect("pressed", global, "back2SceneSwitcher")
+	var bt4=get_node("4")
+	bt4.connect("pressed", self, "switchpoint", ["fisherman_4"])
+	var bt5=get_node("home")
+	bt5.connect("pressed", global, "back2SceneSwitcher")
 	
 	pass
 
@@ -29,6 +31,11 @@ func switchpoint(point):
 		
 	elif point=="fisherman_3":
 		get_tree().change_scene("res://fisherman/Game2.tscn")
+		var global=get_node("/root/global");
+		global.reset()
+	
+	elif point=="fisherman_4":
+		get_tree().change_scene("res://fisherman/Game3.tscn")
 		var global=get_node("/root/global");
 		global.reset()
 		
