@@ -40,7 +40,7 @@ onready var map={
 
 func _ready():
 	var global=get_node("/root/global");
-	global.point = "fisherman_1"
+	global.point = "fisherman_4"
 	for x in range(grid_size.x):
 		grid.append([])
 		grid_inst.append([])
