@@ -36,6 +36,7 @@ func _ready():
 
 func startRunning():
 	var global=get_node("/root/global");
+	global.gameStatus="idle"
 	var state="normal"
 	var reusableBlock=[]
 	for step in global.steps:
