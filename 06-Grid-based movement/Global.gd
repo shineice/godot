@@ -13,7 +13,7 @@ var index = 0;
 var currentGame="maze"
 var currentLevel=1
 
-var gameStatus="normal" #normal/fail/success
+var gameStatus="idle" #normal/fail/success
 
 func reset():
 	steps=[]

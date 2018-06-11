@@ -56,7 +56,6 @@ texture = ExtResource( 3 )
 
 [node name="Grid" type="TileMap" parent="."]
 
-editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 4 )
 cell/size = Vector2( 65, 65 )
