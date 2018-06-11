@@ -91,7 +91,7 @@ func is_goal(pos):
 	print(grid[pos.x][pos.y])
 	if global.steps.size() > 14:
 		return false
-	if grid[pos.x][pos.y]==0:
+	if String(grid[pos.x][pos.y])=="0":
 		return false
 	return pos.x==10 and pos.y==3
 

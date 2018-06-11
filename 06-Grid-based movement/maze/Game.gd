@@ -2,11 +2,11 @@ extends Node
 
 onready var Obstacle = preload("res://maze/Obstacle.tscn")
 var count=0
-var i=0
 var timer
 func _ready():
 	var global=get_node("/root/global");
-	global.mapid=""
+	var u=preload("res://uuid.gd")
+	global.mapid=String(u.v4())
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
@@ -30,6 +30,7 @@ func _ready():
 
 func startRunning():
 	var global=get_node("/root/global");
+	global.gameStatus="normal"
 	#convert user steps into expanded steps(blocks are flattened)
 	var state="normal" #normal/in_block
 	var reusableBlock=[]
@@ -91,9 +92,8 @@ func test(object, action): #[物件, 動作值]
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
-	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
+	global.list.append([String(u.v4()),global.mapid,"add",action,String(OS.get_unix_time())])
 	o.connect("pressed", self, "deleteCommandFrom", [o, global.steps.size()-1]);
-	i=i+1
 
 func deleteCommandFrom(o, index): 
 	var commands=get_node("commands")
@@ -146,9 +146,6 @@ func show_success():
 
 func upload_game_result():
 	var global=get_node("/root/global");
-	var u=preload("res://uuid.gd")
-	global.mapid=String(u.v4())
-
 	global.point=global.currentGame+"_"+str(global.currentLevel+1)
 	var global=get_node("/root/global");
 	var s={"value":global.list}.to_json()

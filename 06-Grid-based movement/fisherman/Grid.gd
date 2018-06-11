@@ -90,7 +90,7 @@ func update_child_pos(new_pos, direction, type):
 	
 
 func is_goal(pos):
-	if grid[pos.x][pos.y]==0:
+	if String(grid[pos.x][pos.y])=="0":
 		return false
 	return pos.x==9 and pos.y==0
 	

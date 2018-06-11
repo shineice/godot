@@ -6,9 +6,11 @@ onready var Obstacle_3 = preload("res://fisherman/grass.tscn")
 
 
 var count=0
-var i=0
+
 
 func _ready():
+	var u=preload("res://uuid.gd")
+	global.mapid=String(u.v4())
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
@@ -70,9 +72,8 @@ func test(object, action): #[物件, 動作值]
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
-	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
+	global.list.append([String(u.v4()),global.mapid,"add",action,String(OS.get_unix_time())])
 	o.connect("pressed", self, "deleteCommandFrom", [o, global.steps.size()-1]);
-	i=i+1
 	print(global.steps)
 
 func deleteCommandFrom(o, index): 
@@ -109,12 +110,12 @@ func show_success():
 	get_tree().change_scene("res://fisherman/success.tscn")
 
 func upload_game_result():
-	var u=preload("res://uuid.gd")
-	global.mapid=String(u.v4())
+	
 	var global=get_node("/root/global");
 	var s={"value":global.list}.to_json()
 	global.gamepoint(global.mapid,global.studentid,global.point,String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 	global.gamestatus(s);
+	print(s)
 	print("finished upload")
 
 func _on_button_readme_pressed():
