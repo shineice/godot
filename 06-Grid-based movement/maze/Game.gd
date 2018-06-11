@@ -7,6 +7,7 @@ func _ready():
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")
 	global.mapid=String(u.v4())
+	global.list=[]
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
@@ -82,8 +83,8 @@ func test(object, action): #[物件, 動作值]
 		o=get_node("command_reuse").duplicate()
 
 	print(o.get_minimum_size())
-	#o.set_pos(Vector2(count*55+25, 10))
-	#count=count+1
+	o.set_pos(Vector2(count*55+25, 10))
+	count=count+1
 	if global.steps.size()<20:
 		commands.add_child(o)
 	else:
@@ -92,7 +93,7 @@ func test(object, action): #[物件, 動作值]
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
-	global.list.append([String(u.v4()),global.mapid,"add",action,String(OS.get_unix_time())])
+	global.list.append([String(u.v4()),global.mapid,"add",action,String(OS.get_unix_time()),String(count)])
 	o.connect("pressed", self, "deleteCommandFrom", [o, global.steps.size()-1]);
 
 func deleteCommandFrom(o, index): 
