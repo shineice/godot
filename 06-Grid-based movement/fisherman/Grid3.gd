@@ -103,6 +103,6 @@ func update_child_pos(new_pos, direction, type):
 	
 
 func is_goal(pos):
-	return pos.x==9 and pos.y==0
+	return pos.x==11 and pos.y==3
 	
 

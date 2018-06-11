@@ -88,9 +88,9 @@ func update_child_pos(new_pos, direction, type):
 	
 
 func is_goal(pos):
-	if global.steps.size() > 11:
+	if global.steps.size() > 14:
 		return false
-	return pos.x==10 and pos.y==4
+	return pos.x==10 and pos.y==3
 
 
 
