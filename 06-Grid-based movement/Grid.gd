@@ -99,7 +99,8 @@ func get_cell_content(pos=Vector2()):
 
 func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
-	
+	if grid_pos.x==16 and grid_pos.y==8:
+		return false
 	if grid_inst[grid_pos.x][grid_pos.y] != null:
 	   grid_inst[grid_pos.x][grid_pos.y].get_node("AnimatedSprite").play()
 	   return true
@@ -128,7 +129,6 @@ func update_child_pos(new_pos, direction, type):
 			else:
 				listbox1.add_child(o)
 			count=count+1
-			list =[]
 			list.append(map[entry])
 			break
 		
@@ -140,6 +140,6 @@ func update_child_pos(new_pos, direction, type):
 	
 func is_goal(pos):
 	for o in list:
-		print(o)
+		print("isgoal:"+o)
 	return pos.x==15 and pos.y==9
 	#urn list = []
