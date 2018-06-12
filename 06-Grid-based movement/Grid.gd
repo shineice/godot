@@ -22,6 +22,7 @@ onready var listbox=get_parent().get_node("list/listbox");
 onready var listbox1=get_parent().get_node("list/listbox1");
 var count=0
 var o 
+var list=[]
 
 #define the map
 onready var map={
@@ -100,11 +101,11 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
 	
 	if grid_inst[grid_pos.x][grid_pos.y] != null:
-		grid_inst[grid_pos.x][grid_pos.y].get_node("AnimatedSprite").play()
-		return true
+	   grid_inst[grid_pos.x][grid_pos.y].get_node("AnimatedSprite").play()
+	   return true
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
-			return true if grid[grid_pos.x][grid_pos.y] == null else false
+			return true# if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 
 
@@ -127,9 +128,18 @@ func update_child_pos(new_pos, direction, type):
 			else:
 				listbox1.add_child(o)
 			count=count+1
-			
+			list =[]
+			list.append(map[entry])
 			break
+		
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
+	
+	
+func is_goal(pos):
+	for o in list:
+		print(o)
+	return pos.x==15 and pos.y==9
+	#urn list = []

@@ -1,19 +1,21 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
 [ext_resource path="res://Grid.gd" type="Script" id=3]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
-[ext_resource path="res://palette.tscn" type="PackedScene" id=5]
-[ext_resource path="res://list.tscn" type="PackedScene" id=6]
-[ext_resource path="res://question.tscn" type="PackedScene" id=7]
-[ext_resource path="res://small/half_resized.png" type="Texture" id=8]
-[ext_resource path="res://small/number_resized.png" type="Texture" id=9]
-[ext_resource path="res://small/Obstacle_resized.png" type="Texture" id=10]
-[ext_resource path="res://small/Obstacle_1_resized.png" type="Texture" id=11]
-[ext_resource path="res://small/Obstacle_3_resized.png" type="Texture" id=12]
-[ext_resource path="res://small/Obstacle_4_resized.png" type="Texture" id=13]
-[ext_resource path="res://small/update-arrow_resized.png" type="Texture" id=14]
+[ext_resource path="res://fail.png" type="Texture" id=5]
+[ext_resource path="res://success.png" type="Texture" id=6]
+[ext_resource path="res://palette.tscn" type="PackedScene" id=7]
+[ext_resource path="res://list.tscn" type="PackedScene" id=8]
+[ext_resource path="res://question.tscn" type="PackedScene" id=9]
+[ext_resource path="res://small/half_resized.png" type="Texture" id=10]
+[ext_resource path="res://small/number_resized.png" type="Texture" id=11]
+[ext_resource path="res://small/Obstacle_resized.png" type="Texture" id=12]
+[ext_resource path="res://small/Obstacle_1_resized.png" type="Texture" id=13]
+[ext_resource path="res://small/Obstacle_3_resized.png" type="Texture" id=14]
+[ext_resource path="res://small/Obstacle_4_resized.png" type="Texture" id=15]
+[ext_resource path="res://small/update-arrow_resized.png" type="Texture" id=16]
 
 [node name="Game" type="Node"]
 
@@ -42,7 +44,19 @@ script/script = ExtResource( 3 )
 
 script/script = ExtResource( 4 )
 
-[node name="palette" parent="." instance=ExtResource( 5 )]
+[node name="fail" type="Sprite" parent="Grid"]
+
+visibility/visible = false
+transform/pos = Vector2( 435, 221 )
+texture = ExtResource( 5 )
+
+[node name="success" type="Sprite" parent="Grid"]
+
+visibility/visible = false
+transform/pos = Vector2( 446, 228 )
+texture = ExtResource( 6 )
+
+[node name="palette" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1015.54, 192.257 )
 
@@ -58,11 +72,11 @@ margin/right = 1171.0
 margin/bottom = 644.0
 alignment = 0
 
-[node name="list" parent="." instance=ExtResource( 6 )]
+[node name="list" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1049.81, 103.219 )
 
-[node name="question" parent="." instance=ExtResource( 7 )]
+[node name="question" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1127.27, 370.275 )
 
@@ -79,7 +93,7 @@ margin/bottom = 708.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 8 )
+icon = ExtResource( 10 )
 flat = true
 
 [node name="number" type="Button" parent="."]
@@ -95,7 +109,7 @@ margin/bottom = 709.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 9 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="Obstacle" type="Button" parent="."]
@@ -111,7 +125,7 @@ margin/bottom = 701.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 10 )
+icon = ExtResource( 12 )
 flat = true
 
 [node name="Obstacle_1" type="Button" parent="."]
@@ -127,7 +141,7 @@ margin/bottom = 709.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 11 )
+icon = ExtResource( 13 )
 flat = true
 
 [node name="Obstacle_3" type="Button" parent="."]
@@ -143,7 +157,7 @@ margin/bottom = 711.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 12 )
+icon = ExtResource( 14 )
 flat = true
 
 [node name="Obstacle_4" type="Button" parent="."]
@@ -159,7 +173,7 @@ margin/bottom = 712.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 13 )
+icon = ExtResource( 15 )
 flat = true
 
 [node name="Obstacle_2" type="Button" parent="."]
@@ -175,7 +189,7 @@ margin/bottom = 705.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 14 )
+icon = ExtResource( 16 )
 flat = true
 
 

@@ -47,3 +47,25 @@ func _input(event):
 			get_tree().set_pause(false)
 		else:
 			get_tree().set_pause(true)
+
+func show_fail():
+	get_node("Grid/fail").show()
+	var grid=get_node("Grid")
+	var timer = Timer.new()
+	timer.set_one_shot(true)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(3)
+	timer.connect("timeout", self, "reset")
+	grid.add_child(timer)
+	timer.start()
+
+func show_success():
+	get_node("Grid/success").show()
+	var grid=get_node("Grid")
+	var timer = Timer.new()
+	timer.set_one_shot(true)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(3)
+	timer.connect("timeout", self, "reset")
+	grid.add_child(timer)
+	timer.start()

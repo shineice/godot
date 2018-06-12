@@ -8,6 +8,8 @@ var point;
 var studentid="10325209"; #Save to global.studentid (signing in)
 var list=[];
 var index = 0;
+var gameStatus
+var currentLevel
 
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
