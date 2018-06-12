@@ -19,7 +19,7 @@
 [ext_resource path="res://maze/pic/FOR_resized.png" type="Texture" id=17]
 [ext_resource path="res://fonts/kaiu.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://maze/pic/cooltext288521467882643_resized.png" type="Texture" id=19]
-[ext_resource path="res://maze/goal.png" type="Texture" id=20]
+[ext_resource path="res://maze/pic/mono-asustado.png" type="Texture" id=20]
 [ext_resource path="res://maze/pic/cooltext288521639039462.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
@@ -266,14 +266,14 @@ bbcode/bbcode = "[center][color=#ffd966]快來協助探險家抓回落跑的猴�
 
 記住，路徑越短越好哦！
 [/color]
-[color=#b6d7a8]《進階玩法》[/color]
+[color=#93c47d]《進階玩法》[/color]
 
-[color=#b6d7a8]有沒有發現在很多關卡，你會一直重複類似的路徑，例如[/color]
+[color=#93c47d]有沒有發現在很多關卡，你會一直重複類似的路徑，例如[/color]
 
 
 
-[color=#b6d7a8]這時候有更快的方法喲！[/color]
-[color=#b6d7a8]
+[color=#93c47d]這時候有更快的方法喲！[/color]
+[color=#93c47d]
 利用畫面右側的         ，可以組合出可重複的步驟，
 
 然後用       來重複呼叫它，例如：[/color]
@@ -460,8 +460,8 @@ texture = ExtResource( 17 )
 
 [node name="Sprite 12" type="Sprite" parent="popup_readme"]
 
-transform/pos = Vector2( 888.809, 467.143 )
-transform/scale = Vector2( 2.44447, 2.15807 )
+transform/pos = Vector2( 872.459, 413.972 )
+transform/scale = Vector2( 0.0893395, 0.0835795 )
 texture = ExtResource( 20 )
 
 [node name="button_readme" type="Button" parent="."]

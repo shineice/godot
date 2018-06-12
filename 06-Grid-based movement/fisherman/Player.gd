@@ -91,6 +91,9 @@ func _fixed_process(delta):
 			global.gameStatus="idle"
 			return
 		elif action=="putdown":
+			if pickupedObject == null:
+				global.gameStatus="fail"
+				return
 			var currentPos=grid.world_to_map(get_pos())
 			grid.grid_inst[currentPos.x][currentPos.y]=pickupedObject
 			grid.grid[currentPos.x][currentPos.y]="o"
@@ -109,3 +112,4 @@ func _fixed_process(delta):
 		global.complete="N"
 		game.upload_game_result()
 		game.show_fail()
+

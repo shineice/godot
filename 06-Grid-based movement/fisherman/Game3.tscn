@@ -4,7 +4,7 @@
 [ext_resource path="res://fisherman/PIC/b03533fa828ba61e518d48734234970a304e590f.jpg" type="Texture" id=2]
 [ext_resource path="res://fisherman/PIC/33779.png" type="Texture" id=3]
 [ext_resource path="res://fisherman/tilesets/tile.tres" type="TileSet" id=4]
-[ext_resource path="res://fisherman/Grid1.gd" type="Script" id=5]
+[ext_resource path="res://fisherman/Grid3.gd" type="Script" id=5]
 [ext_resource path="res://fisherman/GridVisualizer.gd" type="Script" id=6]
 [ext_resource path="res://fisherman/palette.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fisherman/PIC/small/UP_resized.png" type="Texture" id=8]
@@ -18,7 +18,7 @@
 [ext_resource path="res://fisherman/PIC/small/FOR_resized.png" type="Texture" id=16]
 [ext_resource path="res://fonts/kaiu.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://fisherman/PIC/Sheep_resized.png" type="Texture" id=18]
-[ext_resource path="res://fisherman/PIC/wolf.png" type="Texture" id=19]
+[ext_resource path="res://fisherman/PIC/liakad-piranha.png" type="Texture" id=19]
 [ext_resource path="res://fisherman/PIC/cooltext288505254336041_resized.png" type="Texture" id=20]
 [ext_resource path="res://fisherman/PIC/cooltext288505283491953_resized.png" type="Texture" id=21]
 [ext_resource path="res://fisherman/PIC/START_resized.png" type="Texture" id=22]
@@ -56,6 +56,7 @@ texture = ExtResource( 3 )
 
 [node name="Grid" type="TileMap" parent="."]
 
+editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 4 )
 cell/size = Vector2( 65, 65 )
@@ -70,7 +71,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 0, 1, 1, 2, 0, 3, 1, 4, 3, 5, 3, 6, 4, 7, 3, 8, 3, 9, 0, 10, 1, 11, 1, 12, 0, 65536, 1, 65537, 0, 65538, 0, 65539, 1, 65540, 4, 65541, 3, 65542, 4, 65543, 3, 65544, 3, 65545, 1, 65546, 0, 65547, 0, 65548, 1, 131072, 1, 131073, 0, 131074, 1, 131075, 1, 131076, 4, 131077, 4, 131078, 3, 131079, 4, 131080, 3, 131081, 1, 131082, 0, 131083, 0, 131084, 1, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 3, 196613, 4, 196614, 3, 196615, 4, 196616, 3, 196617, 0, 196618, 5, 196619, 1, 196620, 0, 262144, 1, 262145, 0, 262146, 0, 262147, 0, 262148, 4, 262149, 3, 262150, 4, 262151, 4, 262152, 4, 262153, 0, 262154, 1, 262155, 1, 262156, 0, 327680, 1, 327681, 0, 327682, 1, 327683, 0, 327684, 4, 327685, 3, 327686, 4, 327687, 3, 327688, 4, 327689, 0, 327690, 0, 327691, 0, 327692, 1, 393216, 0, 393217, 0, 393218, 1, 393219, 0, 393220, 4, 393221, 3, 393222, 3, 393223, 3, 393224, 4, 393225, 1, 393226, 0, 393227, 1, 393228, 0, 524297, 4, 524298, 4, 524299, 3, 524300, 3 )
+tile_data = IntArray( 0, 0, 1, 0, 2, 4, 3, 3, 4, 4, 5, 3, 6, 3, 7, 3, 8, 4, 9, 3, 10, 3, 11, 0, 12, 0, 65536, 0, 65537, 0, 65538, 4, 65539, 4, 65540, 4, 65541, 3, 65542, 3, 65543, 3, 65544, 4, 65545, 4, 65546, 4, 65547, 0, 65548, 0, 131072, 0, 131073, 0, 131074, 3, 131075, 3, 131076, 3, 131077, 4, 131078, 3, 131079, 3, 131080, 3, 131081, 3, 131082, 3, 131083, 0, 131084, 0, 196608, 0, 196609, 0, 196610, 3, 196611, 3, 196612, 3, 196613, 4, 196614, 4, 196615, 4, 196616, 3, 196617, 3, 196618, 3, 196619, 7, 196620, 0, 262144, 0, 262145, 0, 262146, 3, 262147, 3, 262148, 3, 262149, 3, 262150, 4, 262151, 3, 262152, 3, 262153, 3, 262154, 3, 262155, 0, 262156, 0, 327680, 0, 327681, 0, 327682, 3, 327683, 4, 327684, 3, 327685, 3, 327686, 4, 327687, 4, 327688, 4, 327689, 3, 327690, 4, 327691, 0, 327692, 0, 393216, 0, 393217, 0, 393218, 3, 393219, 4, 393220, 4, 393221, 4, 393222, 3, 393223, 3, 393224, 3, 393225, 3, 393226, 4, 393227, 0, 393228, 0, 524297, 4, 524298, 4, 524299, 3, 524300, 3 )
 script/script = ExtResource( 5 )
 
 [node name="GridVisualizer" type="Node2D" parent="Grid"]
@@ -258,6 +259,7 @@ flat = true
 
 [node name="Popup_read" type="WindowDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -266,7 +268,7 @@ size_flags/vertical = 2
 margin/left = 369.0
 margin/top = 178.0
 margin/right = 839.0
-margin/bottom = 440.0
+margin/bottom = 418.0
 popup/exclusive = false
 window/title = "Read Me"
 
@@ -277,22 +279,18 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 4.0
-margin/top = 20.0
+margin/top = 38.0
 margin/right = 467.0
-margin/bottom = 289.0
+margin/bottom = 307.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode/enabled = true
-bbcode/bbcode = "[center]﻿[color=#ffd966]小夥伴一起來幫助小草過河吧！[/color]
+bbcode/bbcode = "[center]﻿[color=#ffd966]小夥伴一起來幫助小羊過河吧！
+[/color]
+[color=#ffd966]小船現在要帶著小羊過岸。
+[/color]
+[color=#ffd966]過河的時候要注意河中的食人魚，
 
-[color=#ffd966]小船現在要帶著小草過岸，對岸現在待著狼與羊，[/color]
-
-[color=#ffd966]如果小草沒有在使用14個方塊以內的狀況下過河，
-
-對岸的壞壞狼就會被放出來，這樣小羊就會有危險了！[/color]
-
-[color=#ffd966]所以請你使用14個以內的方塊數量，讓小草可以順利過河，[/color]
-
-[color=#ffd966]不然小羊就會被壞壞狼吃掉。[/color][/center]
+注意閃避危機喔！[/color][/center]
 
 "
 visible_characters = -1
@@ -300,14 +298,14 @@ percent_visible = 1.0
 
 [node name="Sprite" type="Sprite" parent="Popup_read"]
 
-transform/pos = Vector2( 402.113, 217.374 )
-transform/scale = Vector2( 0.824414, 0.685775 )
+transform/pos = Vector2( 396.264, 178.626 )
+transform/scale = Vector2( 0.879955, 0.80989 )
 texture = ExtResource( 18 )
 
 [node name="Sprite 2" type="Sprite" parent="Popup_read"]
 
-transform/pos = Vector2( 62.6456, 217.589 )
-transform/scale = Vector2( 0.682388, 0.556448 )
+transform/pos = Vector2( 92.6476, 185.792 )
+transform/scale = Vector2( -0.053881, 0.0600831 )
 texture = ExtResource( 19 )
 
 [node name="read" type="Button" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://fisherman/tilesets/mines/B1.jpg" type="Texture" id=1]
 [ext_resource path="res://fisherman/tilesets/mines/B1.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://fisherman/tilesets/mines/圖片2_resized.png" type="Texture" id=7]
 [ext_resource path="res://fisherman/tilesets/mines/圖片3_resized.png" type="Texture" id=8]
 [ext_resource path="res://fisherman/tilesets/mines/floor.png" type="Texture" id=9]
+[ext_resource path="res://fisherman/PIC/Waves-Pattern_resized.png" type="Texture" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -67,6 +68,13 @@ texture = ExtResource( 8 )
 
 transform/pos = Vector2( 266.859, 284.482 )
 texture = ExtResource( 9 )
+region = true
+region_rect = Rect2( 0, 0, 65, 65 )
+
+[node name="Sprite 10" type="Sprite" parent="."]
+
+transform/pos = Vector2( 365.043, 478.333 )
+texture = ExtResource( 10 )
 region = true
 region_rect = Rect2( 0, 0, 65, 65 )
 

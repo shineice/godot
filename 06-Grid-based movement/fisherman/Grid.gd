@@ -43,14 +43,6 @@ func _ready():
 
 	# Obstacles
 	var positions = []
-	#for x in range(5):
-	#	var placed = false
-	#	while not placed:
-	#		var grid_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-	#		if not grid[grid_pos.x][grid_pos.y]:
-	#			if not grid_pos in positions:
-	#				positions.append(grid_pos)
-	#				placed = true
 
 	for pos in positions:
 		var new_obstacle = Obstacle_1.instance()
@@ -80,10 +72,10 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
-			print(grid[grid_pos.x][grid_pos.y])
-			if grid[grid_pos.x][grid_pos.y] =="Obstacle":
-				return true
-			return true if grid[grid_pos.x][grid_pos.y] == null else false
+			if  grid[grid_pos.x][grid_pos.y] != null:
+				if grid[grid_pos.x][grid_pos.y]=="Node2D":
+					 return false
+			return true if grid[grid_pos.x][grid_pos.y] == null else true
 	return false
 
 
@@ -94,21 +86,14 @@ func update_child_pos(new_pos, direction, type):
 	var new_grid_pos = grid_pos + direction
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
-	if global.expandedSteps[global.index+1]== "pickup":
-		o = grid_inst[new_grid_pos.x][new_grid_pos.y]
-		grid_inst[new_grid_pos.x][new_grid_pos.y]=null
-		grid[new_grid_pos.x][new_grid_pos.y]=null
-		remove_child(o)
-	elif global.expandedSteps[global.index+1]== "putdown":
-		grid_inst[new_grid_pos.x][new_grid_pos.y]=o
-		grid[new_grid_pos.x][new_grid_pos.y]="o"
-		o.set_pos(map_to_world(new_pos) + half_tile_size)
-		add_child(o)
-		
 	return target_pos
 	
 
 func is_goal(pos):
+	if grid[pos.x][pos.y]==null:
+		return false
+	if String(grid[pos.x][pos.y])=="0":
+		return false
 	return pos.x==9 and pos.y==0
 	
 

@@ -22,8 +22,6 @@ func reset():
 	running=false
 	gameStatus="normal"
 
-func _ready():
-	return
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
     var http = HTTPClient.new() 
