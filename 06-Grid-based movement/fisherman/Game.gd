@@ -71,7 +71,7 @@ func test(object, action): #[物件, 動作值]
 	var global=get_node("/root/global");
 	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
-	global.list[i]=[String(u.v4()),"add",action,String(OS.get_unix_time())]
+	global.list.append([String(u.v4()),"add",action,String(OS.get_unix_time())])
 	o.connect("pressed", self, "deleteCommandFrom", [o, global.steps.size()-1]);
 	i=i+1
 	print(global.steps)
@@ -114,6 +114,7 @@ func upload_game_result():
 	global.mapid=String(u.v4())
 	var global=get_node("/root/global");
 	var s={"value":global.list}.to_json()
+	print(s)
 	global.gamepoint(global.mapid,global.studentid,global.point,String(OS.get_unix_time()),String(global.steps.size()),global.complete)
 	global.gamestatus(s);
 	print("finished upload")

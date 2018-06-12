@@ -19,7 +19,6 @@ func initMap():
 	return
 
 func _ready():
-	print("parent ready")
 	for x in range(grid_size.x):
 		grid.append([])
 		grid_inst.append([])

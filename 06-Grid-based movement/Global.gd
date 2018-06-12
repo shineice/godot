@@ -23,10 +23,7 @@ func reset():
 	gameStatus="normal"
 
 func _ready():
-	for x in range(50):
-		var col = []
-		col.resize(4)
-		list.append(col)
+	return
 func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
     var err=0
     var http = HTTPClient.new() 
