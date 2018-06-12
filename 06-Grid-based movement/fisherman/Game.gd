@@ -9,6 +9,7 @@ var count=0
 
 
 func _ready():
+	print(load("res://fisherman/GridBase.gd").instance())
 	var u=preload("res://uuid.gd")
 	global.mapid=String(u.v4())
 	global.list=[]
