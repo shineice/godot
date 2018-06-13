@@ -15,6 +15,34 @@ onready var Player = preload("res://fisherman/Player.tscn")
 
 func initMap():
 	return
+	
+func spawnObject(gridX, gridY, gdPath):
+	var object=load(gdPath).new()
+	object.init()
+	addObject(gridX, gridY, object)
+	return object
+
+func addObject(gridX, gridY, gridObject):
+	if(grid[gridX][gridY]==null):
+		grid[gridX][gridY]=[]
+	var holder=grid[gridX][gridY]
+	gridObject.setParentGrid(self)
+	holder.append(gridObject)
+	gridObject.setPos(gridX, gridY)
+	var node=gridObject.getNode()
+	add_child(node)
+
+func removeObject(gridObject):
+	var gridPos=gridObject.getGridPos()
+	var holder=grid[gridPos.x][gridPos.y]
+	holder.erase(gridObject)
+	remove_child(gridObject.getNode())
+
+func removeObjects(gridX, gridY):
+	var holder=grid[gridX][gridY]
+	for o in holder:
+		remove_child(o.getNode())
+	holder.clear()
 
 func _ready():
 	for x in range(grid_size.x):
@@ -39,10 +67,18 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
 		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
-			print(grid_pos)
-			if grid[grid_pos.x][grid_pos.y] =="Obstacle_3":
+			if(grid[grid_pos.x][grid_pos.y]==null or
+				grid[grid_pos.x][grid_pos.y].empty()):
 				return true
-			return true if grid[grid_pos.x][grid_pos.y] == null else false
+			var holder=grid[grid_pos.x][grid_pos.y]
+			for o in holder:
+				if(o.isBlocking()):
+					return false
+			return true
+#			print(grid_pos)
+#			if grid[grid_pos.x][grid_pos.y] =="Obstacle_3":
+#				return true
+#			return true if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 
 
@@ -54,7 +90,10 @@ func update_child_pos(new_pos, direction, type):
 	grid[new_grid_pos.x][new_grid_pos.y] = type
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
-	
+
+func moveObject(gridObject, newX, newY):
+	removeObject(gridObject)
+	addObject(newX, newY, gridObject)
 
 func is_goal(pos):
 	return true
