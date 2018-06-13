@@ -1,14 +1,19 @@
 #objects shown on the grid
 var node
 var name
+var type
 var parentGrid
 var gridX
 var gridY
 
-func init(_name, _tscnPath):
+func init(_name, _type, _tscnPath):
 	name=_name
+	type=_type
 	node=load(_tscnPath).instance()
 	return
+
+func getType():
+	return type
 
 func getNode():
 	return node

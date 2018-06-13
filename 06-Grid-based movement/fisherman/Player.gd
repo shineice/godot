@@ -84,10 +84,12 @@ func _fixed_process(delta):
 	elif global.gameStatus=="action":
 		if action=="pickup":
 			var currentPos=grid.world_to_map(get_pos())
-			pickupedObject = grid.grid_inst[currentPos.x][currentPos.y]
-			grid.grid_inst[currentPos.x][currentPos.y]=null
-			grid.grid[currentPos.x][currentPos.y]=null
-			grid.remove_child(pickupedObject)
+			pickupedObject = grid.getFirstObject(currentPos.x, currentPos.y)
+			grid.removeObject(pickupedObject)
+#			pickupedObject = grid.grid_inst[currentPos.x][currentPos.y]
+#			grid.grid_inst[currentPos.x][currentPos.y]=null
+#			grid.grid[currentPos.x][currentPos.y]=null
+#			grid.remove_child(pickupedObject)
 			global.gameStatus="idle"
 			return
 		elif action=="putdown":
@@ -95,10 +97,11 @@ func _fixed_process(delta):
 				global.gameStatus="fail"
 				return
 			var currentPos=grid.world_to_map(get_pos())
-			grid.grid_inst[currentPos.x][currentPos.y]=pickupedObject
-			grid.grid[currentPos.x][currentPos.y]="o"
-			pickupedObject.set_pos(grid.map_to_world(currentPos) + grid.half_tile_size)
-			grid.add_child(pickupedObject)
+			grid.addObject(currentPos.x, currentPos.y, pickupedObject)
+#			grid.grid_inst[currentPos.x][currentPos.y]=pickupedObject
+#			grid.grid[currentPos.x][currentPos.y]="o"
+#			pickupedObject.set_pos(grid.map_to_world(currentPos) + grid.half_tile_size)
+#			grid.add_child(pickupedObject)
 			global.gameStatus="idle"
 			return
 	elif global.gameStatus=="success":

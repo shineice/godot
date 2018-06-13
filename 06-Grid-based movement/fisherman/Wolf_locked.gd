@@ -1,4 +1,4 @@
 extends 'res://fisherman/GridObject.gd'
 
 func init():
-	.init("Sheep", "res://fisherman/wolf_locked.tscn")
+	.init("Wolf", "Wolf_locked", "res://fisherman/wolf_locked.tscn")

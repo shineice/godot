@@ -38,7 +38,8 @@ func gamepoint(mapid,stuid,gamepoint,datetime,blocknum,complete):
        "User-Agent: Pirulo/1.0 (Godot)",
         "Accept: */*"
     ]
-    var req="mapid="+mapid+"&stuid="+stuid+"&gamepoint="+gamepoint+"&datetime="+datetime+"&blocknum="+blocknum+"&complete="+complete
+    var req="mapid="+str(mapid)+"&stuid="+str(stuid)+"&gamepoint="+str(gamepoint)+"&datetime="+str(datetime)+"&blocknum="+str(blocknum)+"&complete="+complete
+    
     err = http.request(HTTPClient.METHOD_GET,"/GameProgramLearningServer/GamePointService?"+req,headers) # Request a page from the site (this one was chunked..)
 
     assert( err == OK ) # Make sure all is OK

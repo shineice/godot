@@ -44,6 +44,23 @@ func removeObjects(gridX, gridY):
 		remove_child(o.getNode())
 	holder.clear()
 
+func getObjects(gridX, gridY):
+	return grid[gridX][gridY]
+
+func getObjectByName(gridX, gridY, name):
+	var holder=grid[gridX][gridY]
+	for o in holder:
+		if o.getName()==name:
+			return o
+	return null
+
+func getFirstObject(gridX, gridY):
+	print(grid)
+	var holder=grid[gridX][gridY]
+	if holder.size()>0:
+		return holder[0]
+	return null
+
 func _ready():
 	for x in range(grid_size.x):
 		grid.append([])
@@ -51,7 +68,9 @@ func _ready():
 		for y in range(grid_size.y):
 			grid[x].append(null)
 			grid_inst[x].append(null)
-
+	for x in range(grid_size.x):
+		for y in range(grid_size.y):
+			grid[x][y]=[]
 	# Player
 	var new_player = Player.instance()
 	new_player.set_pos(map_to_world(Vector2(0,0)) + half_tile_size)
@@ -61,7 +80,6 @@ func _ready():
 
 func get_cell_content(pos=Vector2()):
 	return grid[pos.x][pos.y]
-
 
 func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
@@ -84,10 +102,14 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 
 func update_child_pos(new_pos, direction, type):
 	# Remove node from current cell, add it to the new cell, returns the new target move_to position
+#	var grid_pos = world_to_map(new_pos)
+#	grid[grid_pos.x][grid_pos.y] = null
+#	var new_grid_pos = grid_pos + direction
+#	grid[new_grid_pos.x][new_grid_pos.y] = type
+#	var target_pos = map_to_world(new_grid_pos) + half_tile_size
+#	return target_pos
 	var grid_pos = world_to_map(new_pos)
-	grid[grid_pos.x][grid_pos.y] = null
 	var new_grid_pos = grid_pos + direction
-	grid[new_grid_pos.x][new_grid_pos.y] = type
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
 
