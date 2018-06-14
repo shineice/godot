@@ -18,9 +18,9 @@ onready var Player = preload("res://fisherman/Player.tscn")
 func initMap():
 	return
 	
-func spawnObject(gridX, gridY, gdPath):
+func spawnObject(gridX, gridY, gdPath, name):
 	var object=load(gdPath).new()
-	object.init()
+	object.init(name)
 	node2ObjectMap[object.getNode()]=object
 	addObject(gridX, gridY, object)
 	return object

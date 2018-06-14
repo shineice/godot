@@ -2,8 +2,8 @@ extends 'res://fisherman/GridObject.gd'
 
 var pickupedObject=null
 
-func init():
-	.init("Player", "Player", "res://fisherman/Player.tscn")
+func init(name):
+	.init(name, "Player", "res://fisherman/Player.tscn")
 	
 func isKinematicObject():
 	return true

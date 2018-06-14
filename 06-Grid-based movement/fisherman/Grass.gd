@@ -1,4 +1,4 @@
 extends 'res://fisherman/GridObject.gd'
 
-func init():
-	.init("Grass", "Grass", "res://fisherman/grass.tscn")
+func init(name):
+	.init(name, "Grass", "res://fisherman/grass.tscn")
