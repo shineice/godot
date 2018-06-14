@@ -83,6 +83,20 @@ func _ready():
 func get_cell_content(pos=Vector2()):
 	return grid[pos.x][pos.y]
 
+func isGridCellVacant(gridX, gridY, direction=Vector2()):
+	var grid_pos = Vector2(gridX, gridY) + direction
+	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
+		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
+			if(grid[grid_pos.x][grid_pos.y]==null or
+				grid[grid_pos.x][grid_pos.y].empty()):
+				return true
+			var holder=grid[grid_pos.x][grid_pos.y]
+			for o in holder:
+				if(o.isBlocking()):
+					return false
+			return true
+	return false
+
 func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 	var grid_pos = world_to_map(pos) + direction
 	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
