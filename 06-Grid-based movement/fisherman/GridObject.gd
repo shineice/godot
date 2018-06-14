@@ -40,3 +40,6 @@ func getGridPos():
 
 func getWorldPos():
 	return parentGrid.map_to_world(Vector2(gridX, gridY)) + parentGrid.half_tile_size
+
+func isKinematicObject():
+	return false

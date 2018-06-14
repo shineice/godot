@@ -11,6 +11,8 @@ var o
 var grid = []
 var grid_inst=[]
 
+var node2ObjectMap={}
+
 onready var Player = preload("res://fisherman/Player.tscn")
 
 func initMap():
@@ -19,8 +21,12 @@ func initMap():
 func spawnObject(gridX, gridY, gdPath):
 	var object=load(gdPath).new()
 	object.init()
+	node2ObjectMap[object.getNode()]=object
 	addObject(gridX, gridY, object)
 	return object
+
+func getObjectFromNode(node):
+	return node2ObjectMap[node]
 
 func addObject(gridX, gridY, gridObject):
 	if(grid[gridX][gridY]==null):
@@ -71,10 +77,6 @@ func _ready():
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
 			grid[x][y]=[]
-	# Player
-	var new_player = Player.instance()
-	new_player.set_pos(map_to_world(Vector2(0,0)) + half_tile_size)
-	add_child(new_player)
 	
 	initMap()
 
@@ -93,25 +95,15 @@ func is_cell_vacant(pos=Vector2(), direction=Vector2()):
 				if(o.isBlocking()):
 					return false
 			return true
-#			print(grid_pos)
-#			if grid[grid_pos.x][grid_pos.y] =="Obstacle_3":
-#				return true
-#			return true if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 
 
-func update_child_pos(new_pos, direction, type):
-	# Remove node from current cell, add it to the new cell, returns the new target move_to position
-#	var grid_pos = world_to_map(new_pos)
-#	grid[grid_pos.x][grid_pos.y] = null
-#	var new_grid_pos = grid_pos + direction
-#	grid[new_grid_pos.x][new_grid_pos.y] = type
-#	var target_pos = map_to_world(new_grid_pos) + half_tile_size
-#	return target_pos
-	var grid_pos = world_to_map(new_pos)
-	var new_grid_pos = grid_pos + direction
-	var target_pos = map_to_world(new_grid_pos) + half_tile_size
-	return target_pos
+func getWorldPos(gridX, gridY):
+	var gridPos=Vector2(gridX, gridY)
+	return map_to_world(gridPos) + half_tile_size
+	
+func getMapPos(worldX, worldY):
+	return world_to_map(Vector2(worldX, worldY))
 
 func moveObject(gridObject, newX, newY):
 	removeObject(gridObject)

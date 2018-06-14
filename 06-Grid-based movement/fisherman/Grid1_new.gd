@@ -9,13 +9,13 @@ var map={
 func initMap():
 	for entry in map:
 		spawnObject(entry[0], entry[1], map[entry])
+	spawnObject(0, 0, "res://fisherman/FishermanPlayer.gd")
 	return
 
 func is_goal(pos):
-	if global.steps.size() > 14:
+	if global.steps.size() > 15:
 		return false
-	if grid[pos.x][pos.y]==null:
-		return false
-	if String(grid[pos.x][pos.y])=="0":
+	if(getObjectByName(pos.x, pos.y, "Grass")==null):
+		print("2")
 		return false
 	return pos.x==10 and pos.y==3
