@@ -15,7 +15,6 @@ var grid
 var game
 
 var expanded_steps=[]
-var pickupedObject
 var action
 
 var object
@@ -92,17 +91,13 @@ func _fixed_process(delta):
 	elif global.gameStatus=="action":
 		if action=="pickup":
 			var currentPos=grid.getMapPos(get_pos().x, get_pos().y)
-			pickupedObject = grid.getFirstObject(currentPos.x, currentPos.y)
-			grid.removeObject(pickupedObject)
+			object.pickup(grid.getFirstObject(currentPos.x, currentPos.y))
 			global.gameStatus="idle"
 			return
 		elif action=="putdown":
-			if pickupedObject == null:
+			if(object.putdown()==false):
 				global.gameStatus="fail"
 				return
-			var currentPos=grid.getMapPos(get_pos().x, get_pos().y)
-			grid.addObject(currentPos.x, currentPos.y, pickupedObject)
-#			
 			global.gameStatus="idle"
 			return
 	elif global.gameStatus=="success":

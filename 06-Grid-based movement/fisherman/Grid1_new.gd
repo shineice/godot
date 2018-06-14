@@ -16,6 +16,5 @@ func is_goal(pos):
 	if global.steps.size() > 15:
 		return false
 	if(getObjectByName(pos.x, pos.y, "Grass")==null):
-		print("2")
 		return false
 	return pos.x==10 and pos.y==3
