@@ -4,7 +4,7 @@
 [ext_resource path="res://fisherman/PIC/b03533fa828ba61e518d48734234970a304e590f.jpg" type="Texture" id=2]
 [ext_resource path="res://fisherman/PIC/33779.png" type="Texture" id=3]
 [ext_resource path="res://fisherman/tilesets/tile.tres" type="TileSet" id=4]
-[ext_resource path="res://fisherman/Grid_new.gd" type="Script" id=5]
+[ext_resource path="res://fisherman/Grid.gd" type="Script" id=5]
 [ext_resource path="res://fisherman/GridVisualizer.gd" type="Script" id=6]
 [ext_resource path="res://fisherman/palette.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fisherman/PIC/small/UP_resized.png" type="Texture" id=8]
@@ -56,6 +56,7 @@ texture = ExtResource( 3 )
 
 [node name="Grid" type="TileMap" parent="."]
 
+visibility/visible = false
 mode = 0
 tile_set = ExtResource( 4 )
 cell/size = Vector2( 65, 65 )

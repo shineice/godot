@@ -1,13 +1,13 @@
 extends Node
 
-onready var Obstacle = preload("res://Obstacle.tscn")
-onready var Obstacle_1 = preload("res://Obstacle_1.tscn")
-onready var Obstacle_2 = preload("res://Obstacle_2.tscn")
-onready var Obstacle_3 = preload("res://Obstacle_3.tscn")
-onready var Obstacle_4 = preload("res://Obstacle_4.tscn")
-onready var guest = preload("res://guest.tscn")
-onready var number = preload("res://number.tscn")
-onready var half = preload("res://half.tscn")
+onready var Obstacle = preload("res://cooker/Obstacle.tscn")
+onready var Obstacle_1 = preload("res://cooker/Obstacle_1.tscn")
+onready var Obstacle_2 = preload("res://cooker/Obstacle_2.tscn")
+onready var Obstacle_3 = preload("res://cooker/Obstacle_3.tscn")
+onready var Obstacle_4 = preload("res://cooker/Obstacle_4.tscn")
+onready var guest = preload("res://cooker/guest.tscn")
+onready var number = preload("res://cooker/number.tscn")
+onready var half = preload("res://cooker/half.tscn")
 
 var count=0
 var i=0
@@ -28,6 +28,25 @@ func _ready():
 
 func startRunning():
 	var global=get_node("/root/global");
+	global.gameStatus="idle"
+	var state="normal"
+	var reusableBlock=[]
+	for step in global.steps:
+		if state=="normal":
+			if step=="reuse":
+				if reusableBlock.size()>0:
+					for s in reusableBlock:
+						global.expandedSteps.append(s)
+			elif step=="block_start":
+				state="in_block"
+				reusableBlock=[]
+			else:
+				global.expandedSteps.append(step)
+		elif state=="in_block":
+			if step=="block_end":
+				state="normal"
+			else:
+				reusableBlock.append(step)
 	global.running=true;
 	
 func test(object, action): #[物件, 動作值]

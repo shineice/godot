@@ -9,8 +9,8 @@ var velocity = Vector2()
 var action=null
 
 func init(name):
-	.init(name, "Player", "res://fisherman/Player.tscn")
-	
+	.init(name, "Player", "res://cooker/Player.tscn")
+
 func isKinematicObject():
 	return true
 
@@ -100,10 +100,10 @@ func tick(delta):
 		node.set_fixed_process(false)
 		global.running=false
 		global.complete="Y"
-		game.upload_game_result()
-		game.show_success()
+		#game.upload_game_result()
+		#game.show_success()
 	else:#fail	
 		global.running=false
 		global.complete="N"
-		game.upload_game_result()
-		game.show_fail()
+		#game.upload_game_result()
+		#game.show_fail()
