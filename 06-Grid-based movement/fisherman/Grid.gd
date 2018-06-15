@@ -1,4 +1,4 @@
-extends 'res://fisherman/GridBase.gd'
+extends 'res://GridBase.gd'
 
 var map={
 	[3,3]:["res://fisherman/Sheep.gd", "Sheep"],

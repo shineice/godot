@@ -1,21 +1,21 @@
 [gd_scene load_steps=17 format=1]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
-[ext_resource path="res://Grid.gd" type="Script" id=3]
-[ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
-[ext_resource path="res://fail.png" type="Texture" id=5]
-[ext_resource path="res://success.png" type="Texture" id=6]
-[ext_resource path="res://palette.tscn" type="PackedScene" id=7]
-[ext_resource path="res://list.tscn" type="PackedScene" id=8]
-[ext_resource path="res://question.tscn" type="PackedScene" id=9]
-[ext_resource path="res://small/half_resized.png" type="Texture" id=10]
-[ext_resource path="res://small/number_resized.png" type="Texture" id=11]
-[ext_resource path="res://small/Obstacle_resized.png" type="Texture" id=12]
-[ext_resource path="res://small/Obstacle_1_resized.png" type="Texture" id=13]
-[ext_resource path="res://small/Obstacle_3_resized.png" type="Texture" id=14]
-[ext_resource path="res://small/Obstacle_4_resized.png" type="Texture" id=15]
-[ext_resource path="res://small/update-arrow_resized.png" type="Texture" id=16]
+[ext_resource path="res://cooker/Game.gd" type="Script" id=1]
+[ext_resource path="res://cooker/tilesets/Mines.tres" type="TileSet" id=2]
+[ext_resource path="res://cooker/Grid.gd" type="Script" id=3]
+[ext_resource path="res://cooker/GridVisualizer.gd" type="Script" id=4]
+[ext_resource path="res://cooker/fail.png" type="Texture" id=5]
+[ext_resource path="res://cooker/success.png" type="Texture" id=6]
+[ext_resource path="res://cooker/palette.tscn" type="PackedScene" id=7]
+[ext_resource path="res://cooker/list.tscn" type="PackedScene" id=8]
+[ext_resource path="res://cooker/question.tscn" type="PackedScene" id=9]
+[ext_resource path="res://cooker/small/half_resized.png" type="Texture" id=10]
+[ext_resource path="res://cooker/small/number_resized.png" type="Texture" id=11]
+[ext_resource path="res://cooker/small/Obstacle_resized.png" type="Texture" id=12]
+[ext_resource path="res://cooker/small/Obstacle_1_resized.png" type="Texture" id=13]
+[ext_resource path="res://cooker/small/Obstacle_3_resized.png" type="Texture" id=14]
+[ext_resource path="res://cooker/small/Obstacle_4_resized.png" type="Texture" id=15]
+[ext_resource path="res://cooker/small/update-arrow_resized.png" type="Texture" id=16]
 
 [node name="Game" type="Node"]
 
@@ -25,7 +25,7 @@ script/script = ExtResource( 1 )
 
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 50, 50 )
+cell/size = Vector2( 65, 65 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
