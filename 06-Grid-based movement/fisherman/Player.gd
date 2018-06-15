@@ -1,21 +1,7 @@
 extends KinematicBody2D
 
-var direction = Vector2()
-
-const MAX_SPEED = 400
-
-var speed = 0
-var velocity = Vector2()
-
-var target_pos = Vector2()
-var target_direction = Vector2()
-var is_moving = false
-
 var grid
 var game
-
-var expanded_steps=[]
-var action
 
 var object
 
