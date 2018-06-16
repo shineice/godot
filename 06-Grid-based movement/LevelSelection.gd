@@ -17,4 +17,4 @@ func switchLevel(level):
 	if level=="monkeySaver":
 		get_tree().change_scene("res://maze/Game.tscn")
 	elif level=="buttonFisherman":
-		get_tree().change_scene("res://fisherman/Game1.tscn")
+		get_tree().change_scene("res://fisherman/Game.tscn")

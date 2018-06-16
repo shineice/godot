@@ -56,7 +56,6 @@ texture = ExtResource( 3 )
 
 [node name="Grid" type="TileMap" parent="."]
 
-visibility/visible = false
 mode = 0
 tile_set = ExtResource( 4 )
 cell/size = Vector2( 65, 65 )

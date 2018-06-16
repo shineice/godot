@@ -1,6 +1,6 @@
 extends 'res://GridObject.gd'
 
-var pickupedObject=null
+var pickupedObjects=[]
 var target_direction = Vector2()
 var target_pos = Vector2()
 const MAX_SPEED = 400
@@ -14,17 +14,6 @@ func init(name):
 func isKinematicObject():
 	return true
 
-func pickup(obj):
-	pickupedObject=obj
-	getParentGrid().removeObject(obj)
-
-func putdown():
-	if(pickupedObject==null):
-		return false
-	var pos=getGridPos()
-	getParentGrid().addObject(pos.x, pos.y, pickupedObject)
-	return true
-
 func tick(delta):
 	var node=getNode()
 	var global=node.get_node("/root/global");
@@ -33,8 +22,7 @@ func tick(delta):
 	var direction = null
 	var grid_pos = getGridPos()
 	if global.gameStatus=="idle":
-		if(global.index==global.expandedSteps.size()):
-			global.gameStatus="end"
+		if global.expandedSteps.size()<=global.index:
 			return
 		if global.expandedSteps[global.index]=="up": 
 			direction=Vector2(0, -1)
@@ -44,12 +32,6 @@ func tick(delta):
 			direction=Vector2(-1, 0)
 		elif global.expandedSteps[global.index]=="right":
 			direction=Vector2(1, 0)
-		elif global.expandedSteps[global.index]=="pickup":
-			action="pickup"
-			global.gameStatus="action"
-		elif global.expandedSteps[global.index]=="putdown":
-			action="putdown"
-			global.gameStatus="action"
 		if direction!=null:
 			target_direction = direction.normalized()
 			if grid.isGridCellVacant(grid_pos.x, grid_pos.y, direction):
@@ -84,18 +66,23 @@ func tick(delta):
 			#update pos
 			grid.removeObject(self)
 			var newGridPos=grid.getMapPos(node.get_pos().x, node.get_pos().y)
+			#collecting objects in the grid
+			var objectsInGrid=grid.getObjects(newGridPos.x, newGridPos.y)
+			var tobeCollected=[]
+			for o in objectsInGrid:
+				if(o.getName()=="Onion" or o.getName()=="Potato" or o.getName()=="Loop" or
+					o.getName()=="One" or o.getName()=="Half"):
+					tobeCollected.append(o)
+			for o in tobeCollected:
+				o.getNode().get_node("AnimatedSprite").play()
+				pickupedObjects.append(o)
+				if pickupedObjects.size()<=4:
+					game.get_node("list/listbox").add_child(game.get_node(o.getSmallIconName()).duplicate())
+				else:
+					game.get_node("list/listbox1").add_child(game.get_node(o.getSmallIconName()).duplicate())
 			grid.addObject(newGridPos.x, newGridPos.y, self)
-	elif global.gameStatus=="action":
-		if action=="pickup":
-			self.pickup(grid.getFirstObject(grid_pos.x, grid_pos.y))
-			global.gameStatus="idle"
-			return
-		elif action=="putdown":
-			if(self.putdown()==false):
-				global.gameStatus="fail"
-				return
-			global.gameStatus="idle"
-			return
+			if grid.getObjectByName(newGridPos.x, newGridPos.y, "Guest")!=null:
+				global.gameStatus="end"
 	elif global.gameStatus=="success":
 		node.set_fixed_process(false)
 		global.running=false

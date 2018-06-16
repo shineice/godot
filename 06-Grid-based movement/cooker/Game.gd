@@ -8,6 +8,7 @@ onready var Obstacle_4 = preload("res://cooker/Obstacle_4.tscn")
 onready var guest = preload("res://cooker/guest.tscn")
 onready var number = preload("res://cooker/number.tscn")
 onready var half = preload("res://cooker/half.tscn")
+onready var expandingIndex=0
 
 var count=0
 var i=0
@@ -31,7 +32,9 @@ func startRunning():
 	global.gameStatus="idle"
 	var state="normal"
 	var reusableBlock=[]
-	for step in global.steps:
+
+	for i in range(expandingIndex, global.steps.size()):
+		var step=global.steps[i]
 		if state=="normal":
 			if step=="reuse":
 				if reusableBlock.size()>0:
@@ -47,6 +50,7 @@ func startRunning():
 				state="normal"
 			else:
 				reusableBlock.append(step)
+	expandingIndex=global.steps.size()
 	global.running=true;
 	
 func test(object, action): #[物件, 動作值]
