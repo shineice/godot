@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://cooker/Game.gd" type="Script" id=1]
 [ext_resource path="res://cooker/tilesets/Mines.tres" type="TileSet" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://cooker/small/Obstacle_3_resized.png" type="Texture" id=14]
 [ext_resource path="res://cooker/small/Obstacle_4_resized.png" type="Texture" id=15]
 [ext_resource path="res://cooker/small/update-arrow_resized.png" type="Texture" id=16]
-[ext_resource path="res://cooker/pic/33779.png" type="Texture" id=17]
 
 [node name="Game" type="Node"]
 
@@ -79,8 +78,7 @@ transform/pos = Vector2( 1049.81, 103.219 )
 
 [node name="question" parent="." instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 1124.55, 419.248 )
-transform/scale = Vector2( 0.9, 0.9 )
+transform/pos = Vector2( 1127.27, 370.275 )
 
 [node name="half" type="Button" parent="."]
 
@@ -193,18 +191,5 @@ enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 16 )
 flat = true
-
-[node name="bg" type="Sprite" parent="."]
-
-transform/pos = Vector2( 1040.92, 327.061 )
-transform/scale = Vector2( 0.343117, 1.09259 )
-z/z = -1
-texture = ExtResource( 17 )
-
-[node name="command_bg" type="Sprite" parent="."]
-
-transform/pos = Vector2( 437.306, 563.817 )
-transform/scale = Vector2( 1, 0.305517 )
-texture = ExtResource( 17 )
 
 
