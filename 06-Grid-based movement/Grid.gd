@@ -23,7 +23,7 @@ onready var listbox1=get_parent().get_node("list/listbox1");
 var count=0
 var o 
 var list=[]
-
+var isgoal_a=0
 #define the map
 onready var map={
 	[15,5]:"Obstacle", #鍋
@@ -137,9 +137,15 @@ func update_child_pos(new_pos, direction, type):
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
 	
-	
+#判斷成敗Start
 func is_goal(pos):
+	var goal = ["number", "Obstacle_3", "half", "Obstacle_4", 
+                 "Obstacle_2", "Obstacle_1", "Obstacle"]
 	for o in list:
-		print("isgoal:"+o)
-	return pos.x==15 and pos.y==9
-	#urn list = []
+		if list[isgoal_a]==goal[isgoal_a]:
+			print("isgoal:"+o)
+		else:
+			print("notgoal")
+	isgoal_a+=isgoal_a
+ return pos.x==15 and pos.y==9
+#判斷成敗end
