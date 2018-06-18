@@ -6,7 +6,7 @@ var map={
 	[8,1]:["res://cooker/Onion.gd", "Onion"],
 	[8,5]:["res://cooker/Potato.gd", "Potato"],
 	[3,3]:["res://cooker/Loop.gd", "Loop"],
-	[12,6]:["res://cooker/Guest.gd", "Guest"],
+	[12,7]:["res://cooker/Guest.gd", "Guest"],
 	[7,6]:["res://cooker/One.gd", "One"],
 	[6,1]:["res://cooker/Half.gd", "Half"],
 }
@@ -20,3 +20,5 @@ func initMap():
 func is_goal(pos):
 	return true
 
+func getGridSize():
+	return Vector2(13, 8)

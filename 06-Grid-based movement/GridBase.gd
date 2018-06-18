@@ -17,6 +17,14 @@ onready var Player = preload("res://fisherman/Player.tscn")
 
 func initMap():
 	return
+
+#override this to change tile size, which defaults to 65*65
+func getTileSize():
+	return Vector2(65, 65)
+
+#override this to change grid size, which defaults to 13*7
+func getGridSize():
+	return Vector2(13, 7)
 	
 func spawnObject(gridX, gridY, gdPath, name):
 	var object=load(gdPath).new()
@@ -68,6 +76,10 @@ func getFirstObject(gridX, gridY):
 	return null
 
 func _ready():
+	tile_size=self.getTileSize()
+	grid_size=self.getGridSize()
+	half_tile_size=tile_size/2
+
 	for x in range(grid_size.x):
 		grid.append([])
 		grid_inst.append([])
