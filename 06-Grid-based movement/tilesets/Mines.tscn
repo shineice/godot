@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://tilesets/mines/floor.png" type="Texture" id=1]
 [ext_resource path="res://tilesets/mines/background.png" type="Texture" id=2]
+[ext_resource path="res://tilesets/mines/material-birchwood_resized.png" type="Texture" id=3]
 
 [node name="Node" type="Node"]
 
@@ -14,5 +15,12 @@ texture = ExtResource( 1 )
 
 transform/pos = Vector2( 96, 32 )
 texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 163.59, 36.3532 )
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 0, 65, 65 )
 
 

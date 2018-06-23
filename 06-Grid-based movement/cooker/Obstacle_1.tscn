@@ -13,15 +13,12 @@ animations = [ {
 
 [node name="Obstacle" type="Node2D"]
 
-transform/pos = Vector2( 51.5513, 46.7651 )
 transform/scale = Vector2( 0.8, 0.8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-transform/pos = Vector2( 15, 1 )
+transform/pos = Vector2( 1, 1 )
+transform/scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "default"
 

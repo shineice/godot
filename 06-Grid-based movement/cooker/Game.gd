@@ -16,15 +16,17 @@ func _ready():
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var up=get_node("palette/up")
-	up.connect("pressed", self, "test", [up, "up"])  #[物件, 動作值]
+	up.connect("pressed", self, "test", [get_node("command_up"), "up"])  #[物件, 動作值]
 	var down=get_node("palette/down")
-	down.connect("pressed", self, "test", [down, "down"])
+	down.connect("pressed", self, "test", [get_node("command_down"), "down"])
 	var left=get_node("palette/left")
-	left.connect("pressed", self, "test", [left, "left"])
+	left.connect("pressed", self, "test", [get_node("command_left"), "left"])
 	var right=get_node("palette/right")
-	right.connect("pressed", self, "test", [right, "right"])
+	right.connect("pressed", self, "test", [get_node("command_right"), "right"])
 	var start=get_node("palette/start");
 	start.connect("pressed", self, "startRunning");
+	var back=get_node("palette/back");
+	back.connect("pressed", global, "back2SceneSwitcher");
 
 func startRunning():
 	var global=get_node("/root/global");
@@ -51,13 +53,47 @@ func startRunning():
 	
 func test(object, action): #[物件, 動作值]
 	var commands=get_node("commands")
+	var commands1=get_node("commands1")
+	var commands2=get_node("commands2")
 	var o=object.duplicate()
 	o.set_pos(Vector2(count*55+25, 10))
 	count=count+1
-	commands.add_child(o)
+	if global.steps.size() < 15:
+		commands.add_child(o)
+	elif global.steps.size() > 14 and global.steps.size() < 30:
+		commands1.add_child(o)
+	elif global.steps.size() > 29:
+		commands2.add_child(o)
 	#宣告一個全域陣列(or project setting->Autoload)
-	var global=get_node("/root/global");  
+	var global=get_node("/root/global");
+	var u=preload("res://uuid.gd")  
 	global.steps.append(action);#把陣列的值掛上去
+	global.list.append([String(u.v4()),global.mapid,"add",action,String(OS.get_unix_time()),String(count)])
+	o.connect("pressed", self, "deleteCommandFrom", [o, global.steps.size()-1]);
+	print(global.steps)
+
+func deleteCommandFrom(o, index): 
+	var commands=get_node("commands")
+	var commands1=get_node("commands1")
+	var commands2=get_node("commands2")
+	var parentNode=o.get_parent()
+	var currentIndex=0
+	for object in commands.get_children():
+		if currentIndex>=index:
+			commands.remove_child(object)
+		currentIndex=currentIndex+1
+	for object in commands1.get_children():
+		if currentIndex>=index:
+			commands1.remove_child(object)
+		currentIndex=currentIndex+1
+	for object in commands2.get_children():
+		if currentIndex>=index:
+			commands2.remove_child(object)
+		currentIndex=currentIndex+1
+	currentIndex=global.steps.size()-1
+	while currentIndex>=index:
+		global.steps.pop_back()
+		currentIndex=currentIndex-1
 	print(global.steps)
 	
 func _input(event):

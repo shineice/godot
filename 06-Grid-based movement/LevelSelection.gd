@@ -11,10 +11,14 @@ func _ready():
 	bt1.connect("pressed", self, "switchLevel", ["monkeySaver"])  #[物件, 動作值]
 	var bt2=get_node("buttonFisherman")
 	bt2.connect("pressed", self, "switchLevel", ["buttonFisherman"])  #[物件, 動作值]
+	var bt3=get_node("buttonCooker")
+	bt3.connect("pressed", self, "switchLevel", ["buttonCooker"])
 	pass
 
 func switchLevel(level):
 	if level=="monkeySaver":
 		get_tree().change_scene("res://maze/Game.tscn")
 	elif level=="buttonFisherman":
-		get_tree().change_scene("res://fisherman/Game1.tscn")
+		get_tree().change_scene("res://fisherman/Game.tscn")
+	elif level=="buttonCooker":
+		get_tree().change_scene("res://cooker/Game.tscn")

@@ -15,7 +15,7 @@ animations = [ {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-transform/scale = Vector2( 0.259853, 0.259853 )
+transform/scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 1 )
 animation = "default"
 

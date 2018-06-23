@@ -1,24 +1,25 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://cooker/pic/cooltext288520941673734_resized.png" type="Texture" id=1]
 [ext_resource path="res://cooker/pic/cooltext288520991024003_resized.png" type="Texture" id=2]
 [ext_resource path="res://cooker/pic/cooltext288521017088699_resized.png" type="Texture" id=3]
 [ext_resource path="res://cooker/pic/cooltext288521064336462_resized.png" type="Texture" id=4]
 [ext_resource path="res://cooker/pic/cooltext288521467882643_resized.png" type="Texture" id=5]
+[ext_resource path="res://cooker/pic/cooltext288521540608128_resized.png" type="Texture" id=6]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="up" type="Button" parent="."]
 
-rect/scale = Vector2( 0.8, 0.8 )
+rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -2.0
-margin/top = 6.0
-margin/right = 128.0
-margin/bottom = 112.0
+margin/left = -6.0
+margin/top = 18.0
+margin/right = 106.0
+margin/bottom = 124.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -29,14 +30,14 @@ flat = true
 
 anchor/top = 3
 anchor/bottom = 3
-rect/scale = Vector2( 0.8, 0.8 )
+rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -1.0
+margin/left = -6.0
 margin/top = -61.0
-margin/right = 147.0
+margin/right = 106.0
 margin/bottom = -167.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -48,15 +49,15 @@ flat = true
 
 anchor/top = 3
 anchor/bottom = 3
-rect/scale = Vector2( 0.8, 0.8 )
+rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -88.0
-margin/top = -60.0
-margin/right = 47.0
-margin/bottom = -166.0
+margin/left = -86.0
+margin/top = -61.0
+margin/right = 26.0
+margin/bottom = -167.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -67,14 +68,14 @@ flat = true
 
 anchor/top = 3
 anchor/bottom = 3
-rect/scale = Vector2( 0.8, 0.8 )
+rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 85.0
+margin/left = 74.0
 margin/top = -61.0
-margin/right = 228.0
+margin/right = 186.0
 margin/bottom = -167.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -84,19 +85,36 @@ flat = true
 
 [node name="start" type="Button" parent="."]
 
-rect/scale = Vector2( 0.8, 0.8 )
+rect/scale = Vector2( 0.8, 0.7 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 183.0
-margin/right = 143.0
-margin/bottom = 269.0
+margin/left = -82.0
+margin/top = 176.0
+margin/right = 30.0
+margin/bottom = 262.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 5 )
+flat = true
+
+[node name="back" type="Button" parent="."]
+
+rect/scale = Vector2( 0.8, 0.7 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 58.0
+margin/top = 175.0
+margin/right = 170.0
+margin/bottom = 261.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 6 )
 flat = true
 
 
