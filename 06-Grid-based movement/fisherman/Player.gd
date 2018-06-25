@@ -18,6 +18,7 @@ var game
 var expanded_steps=[]
 var pickupedObject
 var action
+var timer
 
 func _ready():
 	grid = get_parent()
@@ -105,11 +106,29 @@ func _fixed_process(delta):
 		set_fixed_process(false)
 		global.running=false
 		global.complete="Y"
+		game.get_node("success").show()
 		game.upload_game_result()
-		game.show_success()
+		timer = Timer.new()
+		timer.set_one_shot(true)
+		timer.set_timer_process_mode(0)
+		timer.set_wait_time(1)
+		timer.connect("timeout", self, "show_success")
+		grid.add_child(timer)
+		timer.start()
 	else:#fail	
+		set_fixed_process(false)
 		global.running=false
 		global.complete="N"
+		game.get_node("fail").show()
 		game.upload_game_result()
-		game.show_fail()
-
+		timer = Timer.new()
+		timer.set_one_shot(true)
+		timer.set_timer_process_mode(0)
+		timer.set_wait_time(1)
+		timer.connect("timeout", self, "show_fail")
+		grid.add_child(timer)
+		timer.start()
+func show_success():
+	game.show_success()
+func show_fail():
+	game.show_fail()

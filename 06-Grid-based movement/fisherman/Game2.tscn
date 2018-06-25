@@ -570,6 +570,42 @@ transform/pos = Vector2( 394, 200 )
 transform/scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 16 )
 
+[node name="success" type="Label" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 297.0
+margin/top = 262.0
+margin/right = 424.0
+margin/bottom = 276.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Success, Loading..."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fail" type="Label" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 297.0
+margin/top = 262.0
+margin/right = 424.0
+margin/bottom = 276.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fail, Loading..."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [connection signal="pressed" from="read" to="." method="_on_button_readme_pressed"]
 
 [connection signal="pressed" from="read 2" to="." method="_on_read_2_pressed"]

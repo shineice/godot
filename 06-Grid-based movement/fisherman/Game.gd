@@ -108,6 +108,7 @@ func show_fail():
 	get_tree().change_scene("res://fisherman/fail.tscn")
 	
 func show_success():
+	get_node("success").show()
 	get_tree().change_scene("res://fisherman/success.tscn")
 
 func upload_game_result():
